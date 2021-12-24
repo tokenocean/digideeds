@@ -193,6 +193,10 @@ export const getArtworkBySlug = `query($slug: String!) {
       tag
     },
     num_favorites,
+    metadata {
+      maintenance_fee_monthly
+      built_at
+    }
   }
 }`;
 
@@ -229,9 +233,14 @@ export const create = `mutation ($artwork: artworks_insert_input!, $tags: [tags_
   } 
 }`;
 
-export const updateArtwork = `mutation update_artwork($artwork: artworks_set_input!, $id: uuid!) {
+export const updateArtwork = `mutation update_artwork($artwork: artworks_set_input!, $id: uuid!, $metadata: metadata_set_input = {}) {
   update_artworks_by_pk(pk_columns: { id: $id }, _set: $artwork) {
     id
+  }
+  update_metadata(where: {artwork_id:{_eq:$id}}, _set: $metadata){
+    returning{
+      id
+    }
   }
 }`;
 
@@ -270,6 +279,10 @@ export const getArtwork = `query($id: uuid!) {
       aggregate {
         count
       }
+    }
+    metadata {
+      maintenance_fee_monthly
+      built_at
     }
   }
 }`;
