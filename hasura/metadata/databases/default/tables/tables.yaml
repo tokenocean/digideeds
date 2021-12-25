@@ -15,6 +15,7 @@
 - "!include public_featured.yaml"
 - "!include public_follows.yaml"
 - "!include public_invitees.yaml"
+- "!include public_metadata.yaml"
 - "!include public_offers.yaml"
 - "!include public_recentactivity.yaml"
 - "!include public_royalty_recipients.yaml"

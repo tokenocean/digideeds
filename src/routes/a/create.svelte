@@ -114,6 +114,7 @@
     edition: 1,
     editions: 1,
     tags: [],
+    metadata: {},
   };
 
   let hash, tx;
@@ -270,7 +271,10 @@
           artwork_id: artwork.id,
         }));
 
-        let artworkSansTags = { ...artwork };
+        let artworkSansTags = {
+          ...artwork,
+          ...{ metadata: { data: artwork.metadata } },
+        };
         delete artworkSansTags.tags;
 
         let variables = {
@@ -332,7 +336,7 @@
         <div>Back</div>
       </div>
     </a>
-    <h2>Submit artwork</h2>
+    <h2>Submit property</h2>
     <div class="flex flex-wrap flex-col-reverse lg:flex-row">
       <div class="w-full lg:w-1/2 lg:pr-10">
         <div class:invisible={!loading}>

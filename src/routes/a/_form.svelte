@@ -87,36 +87,31 @@
     <input
       class="border-0 border-b-2"
       style="border-radius: 0 !important"
-      placeholder="What's your artwork title?"
+      placeholder="What's the propery title?"
       on:input={({ target: { value } }) => debounce(value)}
       bind:this={input} />
   </div>
-  <div class="toggle mb-6">
-    <label for="physical" class="inline-flex items-center">
-      <input
-        id="physical"
-        class="form-checkbox h-6 w-6"
-        type="checkbox"
-        bind:checked={artwork.is_physical} />
-      <span class="ml-3">This is a physical artwork</span>
-    </label>
-  </div>
-  {#if !artwork.id}
-    <div class="flex flex-col mb-6">
-      <label for="editions">Number of editions</label>
-      <input
-        id="editions"
-        placeholder="Editions"
-        bind:value={artwork.editions}
-        class="w-1/2" />
-    </div>
-  {/if}
   <div class="flex flex-col mb-6">
     <label for="description">Description</label>
     <textarea
       id="description"
       placeholder="How would you describe it?"
       bind:value={artwork.description} />
+  </div>
+  <div class="flex flex-col mb-6">
+    <label for="maintenance_fee">Maintenance Fee</label>
+      <input
+      type="number"
+      placeholder="What's the monthly maintenance fee?"
+      bind:value={artwork.metadata.maintenance_fee_monthly} />
+  </div>
+  <div class="flex flex-col mb-4 mr-6">
+    <label for="built_at">Built at</label>
+    <input
+      id="built_at"
+      type="date"
+      name="date"
+      bind:value={artwork.metadata.built_at} />
   </div>
   {#if !artwork.id}
     <div class="flex flex-col mb-6">
