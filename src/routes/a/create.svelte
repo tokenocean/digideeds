@@ -53,6 +53,7 @@
   let loading;
   let focus;
   let title;
+  let moreImages = false;
 
   let previewFile = (file) => {
     var reader = new FileReader();
@@ -104,6 +105,30 @@
 
     url = `/api/ipfs/${artwork.filename}`;
     await tick();
+  };
+
+  const uploadExtra = async ({ detail: file }) => {
+    if (!file) return;
+    ({ type } = file);
+    artwork.filetype = type;
+
+    console.log(file);
+
+    if (supportedTypes.includes(type))
+      throw new Error("Supported file types are jpg, png, gif, mp4");
+
+    // if (file.size < 100000000) previewFile(file);
+
+    // try {
+    //   artwork.filename = await upload(file, progress);
+    // } catch (e) {
+    //   err(e);
+    //   percent = 0;
+    //   return;
+    // }
+
+    // url = `/api/ipfs/${artwork.filename}`;
+    // await tick();
   };
 
   let artwork = {
@@ -343,8 +368,8 @@
         </div>
       </div>
       {#if percent}
-        <div class="ml-2 flex-1 flex">
-          <div class="upload-button mx-auto">
+        <div class="ml-2 flex-1 flex flex-col">
+          <div class="mx-auto">
             <ArtworkMedia
               {artwork}
               {preview}
@@ -364,6 +389,21 @@
                   Upload complete!
                 {:else}Processing...{/if}
               </div>
+            </div>
+          </div>
+
+          {#if moreImages}
+            <Dropzone on:file={uploadExtra} style="box" />
+          {/if}
+          <div>
+            <div class="upload-button mx-auto">
+              <button
+                type="button"
+                class="secondary-btn"
+                on:click={() => (moreImages = !moreImages)}
+              >
+                Add
+              </button>
             </div>
           </div>
         </div>
