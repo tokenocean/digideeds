@@ -38,16 +38,144 @@
   onDestroy(() => clearInterval(interval));
 </script>
 
-<div class="flex header-container mx-auto justify-center marg-bottom">
+<div
+  class="bg-gray-400 pb-20 md:pb-[128px] flex header-container mx-auto justify-center"
+>
   <div class="header text-center">
-    <h1 class="text-left md:text-center md:w-full">
+    <h1 class="text-center md:w-full">
       {branding.projectName}
-      <br />digital art
+      <br />real estate
     </h1>
     <h5 class="md:max-w-lg mx-auto text-left md:text-center">
-      Upload, collect, and transact rare digital art on the Liquid Network
+      List your property as an NFT, buy a property with bitcoin.
     </h5>
-    <a class="primary-btn" href={`/market`}>Start exploring</a>
+    <div class="block md:flex justify-center mx-auto">
+      <a class="primary-btn mb-6 mb:0 mx-0 md:mx-2" href={`/market`}>List</a>
+      <a class="primary-btn mx-0 md:mx-2" href={`/market`}>Buy</a>
+    </div>
+  </div>
+</div>
+
+<div class="flex justify-center flex-wrap">
+  <div
+    class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-6"
+  >
+    <img
+      class="rounded-t-lg h-72 object-cover"
+      src="/bitcoin.jpg"
+      alt="bitcoin"
+    />
+
+    <div class="p-5">
+      <h5
+        class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+      >
+        What is bitcoin?
+      </h5>
+
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+        Bitcoin is a peer-to-peer, decentralized, and censorship resistant
+        electronic cash system. It allows for immutable payments and assets
+        stored on the blockchain ledger. It is the first system to successfully
+        implement digital scarcity and is rapidly changing the world with it's
+        many use cases.
+      </p>
+      <a
+        href="https://bitcoin.org"
+        class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        Read more
+        <svg
+          class="ml-2 -mr-1 w-4 h-4"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            fill-rule="evenodd"
+            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+            clip-rule="evenodd"
+          /></svg
+        >
+      </a>
+    </div>
+  </div>
+  <div
+    class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-6"
+  >
+    <img class="rounded-t-lg h-72 object-cover" src="/nft.jpg" alt="nft" />
+
+    <div class="p-5">
+      <h5
+        class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+      >
+        What is an NFT?
+      </h5>
+
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+        An NFT otherwise known as a Non-Fungible Token, is a digital asset that
+        is minted on a blockchain. It's ownership can be cryptographically
+        verified and it can be traded for value. Anything in the physical or
+        digital world can become an NFT. DigiDeeds uses the bitcoin blockchain
+        and Liquid Network to mint NFTs, making digital real estate possible.
+      </p>
+      <a
+        href="https://wikiless.org/wiki/Non-fungible_token"
+        class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        Read more
+        <svg
+          class="ml-2 -mr-1 w-4 h-4"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            fill-rule="evenodd"
+            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+            clip-rule="evenodd"
+          /></svg
+        >
+      </a>
+    </div>
+  </div>
+  <div
+    class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-6"
+  >
+    <img
+      class="rounded-t-lg h-72 object-cover"
+      src="/houses.jpg"
+      alt="houses"
+    />
+
+    <div class="p-5">
+      <h5
+        class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+      >
+        What is a digital deed?
+      </h5>
+
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+        Owning a digital deed means minting and holding an NFT for a property.
+        You can then list your property for sale on the DigiDeeds marketplace
+        and choose to sell it if you find a suitable buyer.
+      </p>
+      <a
+        href="/market"
+        class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        Explore properties
+        <svg
+          class="ml-2 -mr-1 w-4 h-4"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            fill-rule="evenodd"
+            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+            clip-rule="evenodd"
+          /></svg
+        >
+      </a>
+    </div>
   </div>
 </div>
 
@@ -96,28 +224,30 @@
   </div>
 {/if}
 
-<div class="container mx-auto px-10">
-  <h3>Recent Activity</h3>
-</div>
-<div class="container mx-auto flex overflow-x-auto">
-  {#each recent as transaction}
-    <RecentActivityCard {transaction} />
-  {/each}
-</div>
-<div class="container more marg-bottom">
-  <a class="secondary-btn" href={"/activity"}>View more</a>
-</div>
+<div class="bg-gray-500 py-[128px]">
+  <div class="container mx-auto px-10">
+    <h3>Recent Activity</h3>
+  </div>
+  <div class="container mx-auto flex overflow-x-auto">
+    {#each recent as transaction}
+      <RecentActivityCard {transaction} />
+    {/each}
+  </div>
+  <div class="container more marg-bottom">
+    <a class="secondary-btn" href={"/activity"}>View more</a>
+  </div>
 
-<div class="container mx-auto px-10">
-  <h3>Latest Pieces</h3>
-</div>
-<div class="container mx-auto flex pb-1 overflow-x-auto">
-  {#each latest as transaction}
-    <LatestPiecesCard {transaction} />
-  {/each}
-</div>
-<div class="container more marg-bottom">
-  <a class="secondary-btn" href={"/market"}>View gallery</a>
+  <div class="container mx-auto px-10">
+    <h3>Latest Properties</h3>
+  </div>
+  <div class="container mx-auto flex pb-1 overflow-x-auto">
+    {#each latest as transaction}
+      <LatestPiecesCard {transaction} />
+    {/each}
+  </div>
+  <div class="container more">
+    <a class="secondary-btn" href={"/market"}>View listings</a>
+  </div>
 </div>
 
 <style>
@@ -128,7 +258,6 @@
 
   .header .primary-btn {
     width: 240px;
-    margin: 0 auto;
   }
 
   .header h5 {
