@@ -100,7 +100,7 @@
           <h4><span class="font-bold">Info: </span>{user.info}</h4>
         </div>
 
-        <h4><span class="font-bold">Artwork samples: </span></h4>
+        <h4><span class="font-bold">Property samples: </span></h4>
         <div class="text-center my-auto mr-2 flex">
           {#each user.samples as sample}
             <div class="w-40 mb-2 mr-2">

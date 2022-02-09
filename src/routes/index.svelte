@@ -65,7 +65,7 @@
               class="button-transparent header-button border mt-10"
               style="border-color: white; color: white"
             >
-              View Artwork</button
+              View Property</button
             ></a
           >
         </p>

@@ -114,9 +114,9 @@
           account. All new users will automatically receive a Fan account when
           registering in the Website. This account will allow the User to trade
           NFTs in the Website but it will not provide permission to upload
-          Artwork to the Website or mint NFTs. On the other hand, the Artist
+          Property to the Website or mint NFTs. On the other hand, the Artist
           account will have the same functionality as the Fan account with the
-          added permissions of uploading Artwork and minting NFTs in the
+          added permissions of uploading Property and minting NFTs in the
           Website. Initially, only a limited number of Artist accounts will be
           granted to selected artists. Users must ensure that Account(s)
           registered are personal and will not be used by any other person. You
@@ -258,7 +258,7 @@
         <h3>Creation of { branding.projectName } Items</h3>
 
         <p>
-          All Artwork (“Artwork(s)”, “Creation(s)”, “Work”) posted on the
+          All Property (“Property(s)”, “Creation(s)”, “Work”) posted on the
           { branding.projectName } website is associated with a unique Liquid asset exclusively
           issued by an approved { branding.projectName } Artist. Each { branding.projectName } Item
           (“Item(s)”, “Non-fungible token(s)”, “NFT(s)” or “Token”) is minted by
@@ -271,10 +271,10 @@
           Website hosts an IPFS node that is capable of maintaining a copy and
           serving the media files to other nodes. Artists or anyone interested
           could run their own IPFS node to provide this service and add
-          redundancy to the system. After adding the Artwork to the IPFS
+          redundancy to the system. After adding the Property to the IPFS
           network, the Artist's wallet generates a Liquid asset issuance
           transaction containing some metadata including the title of the
-          Artwork and the CID. This issuance transaction (“Mint”) is then
+          Property and the CID. This issuance transaction (“Mint”) is then
           broadcasted to be permanently recorded in the Liquid blockchain, added
           to the Blockstream Asset Registry and the minted Token is sent to the
           Artist’s wallet that can then be traded in the Website. This action
@@ -293,7 +293,7 @@
         <h3>{ branding.projectName } Artists</h3>
 
         <p>
-          Initially, only invited Artists will be able to post Artwork in the
+          Initially, only invited Artists will be able to post Property in the
           Website, mint Tokens and make a primary Sale of { branding.projectName } Items. This
           responsibility will then be passed on to the active { branding.projectName } Artists.
           Artists seeking an invitation to create and list works for sale on
@@ -421,9 +421,9 @@
           </li>
           <li>
             Purchasing a Token is a form of digital patronage and conveys only
-            rights to that Item. The exclusive rights of the associated Artwork
+            rights to that Item. The exclusive rights of the associated Property
             belong to the artist regardless of Token ownership. A Token does not
-            convey any right or ownership on the associated Work and the Artwork
+            convey any right or ownership on the associated Work and the Property
             can not be reproduced or derivative work created unless explicit
             permission is granted by the Artist or in the Sale terms. If any
             additional right is granted to the Token holder, this is
@@ -437,11 +437,11 @@
             platforms, blogs, digital galleries or virtual environments such as
             virtual worlds or virtual galleries for promotional purposes with
             the intent to sell the associated Token or to share the purchase or
-            discuss the Artwork. Any other features associated with the Token
+            discuss the Property. Any other features associated with the Token
             including but not limited to a physical representation of the
-            Artwork will be explicitly described in the { branding.projectName } Item Sale.
+            Property will be explicitly described in the { branding.projectName } Item Sale.
             Unless authorized by the Artist or Sale terms, the owner of a Token
-            can not use the associated Artwork for commercial purposes including
+            can not use the associated Property for commercial purposes including
             but not limited to selling copies of the Work. If any additional
             permissions or rights are granted, these would be automatically
             cancelled once the Token holder is no longer in possession of the
@@ -489,7 +489,7 @@
             or hereafter claimed or imposed by any governmental authority, “
             associated with your use of the Website (including, without
             limitation, any taxes that may become payable as the result of your
-            ownership, transfer, purchase, sale, or creation of any Artwork(s)).
+            ownership, transfer, purchase, sale, or creation of any Property(s)).
           </li>
           <li>
             You affirm that you are over the age of 18, as the Website is not
@@ -501,11 +501,11 @@
 
         <p>
           { branding.projectName } provides an easy and intuitive way for Artists and Fans to
-          buy and sell { branding.projectName } Items. Artworks are listed in a
+          buy and sell { branding.projectName } Items. Propertys are listed in a
           searchable/sortable/filterable marketplace gallery. Bids and sales are
           conducted peer-to-peer using atomic swaps so the Website or Operator
           do not hold funds on escrow and are never in custody of User’s funds
-          or { branding.projectName } Items. Listings, bids, transfers and new Artwork activity
+          or { branding.projectName } Items. Listings, bids, transfers and new Property activity
           are logged and presented in a site-wide feed. Royalties and auction
           holding periods are enforced through a 2-of-2 signing method where one
           of the keys is controlled by the Website and only transactions that

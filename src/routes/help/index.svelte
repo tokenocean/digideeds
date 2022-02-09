@@ -32,11 +32,11 @@
         <h3>How are they created?</h3>
 
         <p>
-          When an artist first uploads an image or video file for an artwork,
+          When an artist first uploads an image or video file for an property,
           the file is added to the IPFS network and assigned a hash number that
           uniquely identifies the contents of the file. The artist's {branding.projectName}
           wallet will then generate a Liquid asset issuance transaction containing
-          the title of the artwork and its hash and broadcast it to be permanently
+          the title of the property and its hash and broadcast it to be permanently
           recorded in the Liquid blockchain.
         </p>
 
