@@ -1,45 +1,41 @@
 const BRANDING = {
-  projectName: "Raretoshi",
+  projectName: "DigiDeeds",
 
-  superUserName: "raretoshi",
+  superUserName: "digideeds",
 
   urls: {
-    base: "raretoshi.com",
-    www: "www.raretoshi.com",
-    protocol: "https://raretoshi.com",
+    base: "digideeds.io",
+    www: "www.digideeds.io",
+    protocol: "https://digideeds.io",
     external: {
-      twitter: "https://twitter.com/raretoshi",
-      telegram: "https://t.me/raretoshi",
-      blog: "https://blog.raretoshi.com/",
-      facebook: "https://facebook.com/raretoshi",
-			instagram: "https://www.instagram.com/raretoshi/",
-			discord: "https://discord.gg/XUxPs3YnQz",
+      twitter: "https://twitter.com/digideeds",
+      telegram: "https://t.me/digideeds",
+      blog: "https://blog.digideeds.io/",
     },
   },
 
   meta: {
-    title: "Raretoshi",
-    keywords: "Bitcoin Liquid NFT Art",
-    description:
-      "Upload, collect, and transact rare digital art on the Liquid Network",
-    image: "https://raretoshi.com/splash.png",
-    url: "https://raretoshi.com/",
+    title: "DigiDeeds",
+    keywords: "Bitcoin Liquid NFT Real Estate",
+    description: "Digital deeds on the bitcoin liquid network.",
+    image: "https://digideeds.io/splash.png",
+    url: "https://digideeds.io/",
 
     twitter: {
       card: "summary_large_image",
-      creator: "@raretoshi",
-      site: "@raretoshi",
+      creator: "@digideeds",
+      site: "@digideeds",
     },
 
     artwork: (art) => ({
-      title: `Raretoshi - ${art.title}`,
+      title: `DigiDeeds - ${art.title}`,
       image: `/api/ipfs/${art.filename}`,
-      url: `https://raretoshi.com/a/${art.slug}`,
+      url: `https://digideeds.io/a/${art.slug}`,
     }),
   },
 
   emails: {
-    support: "support@raretoshi.com",
+    support: "support@digideeds.com",
   },
 };
 
