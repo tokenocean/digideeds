@@ -1,0 +1,103 @@
+table:
+  name: metadata
+  schema: public
+object_relationships:
+- name: artwork
+  using:
+    foreign_key_constraint_on: artwork_id
+insert_permissions:
+- permission:
+    backend_only: false
+    check:
+      artwork:
+        artist_id:
+          _eq: X-Hasura-User-Id
+    columns:
+    - built_at
+    - maintenance_fee_monthly
+    - property_address
+    - bedroom_number
+    - bathroom_number
+    - property_title
+    - building_type
+    - annual_taxes
+    - appliences_included
+    - window_coverings
+    - floor_space
+    - fire_protection
+    - amenities_nearby
+    - created_at
+    - updated_at
+    - artwork_id
+    - id
+  role: user
+select_permissions:
+- permission:
+    columns:
+    - built_at
+    - maintenance_fee_monthly
+    - property_address
+    - bedroom_number
+    - bathroom_number
+    - property_title
+    - building_type
+    - annual_taxes
+    - appliences_included
+    - window_coverings
+    - floor_space
+    - fire_protection
+    - amenities_nearby
+    - created_at
+    - updated_at
+    - artwork_id
+    - id
+    filter: {}
+  role: anonymous
+- permission:
+    allow_aggregations: true
+    columns:
+    - id
+    - artwork_id
+    - created_at
+    - updated_at
+    - built_at
+    - maintenance_fee_monthly
+    - property_address
+    - bedroom_number
+    - bathroom_number
+    - property_title
+    - building_type
+    - annual_taxes
+    - appliences_included
+    - window_coverings
+    - floor_space
+    - fire_protection
+    - amenities_nearby
+    filter: {}
+  role: user
+update_permissions:
+- permission:
+    check: null
+    columns:
+    - built_at
+    - maintenance_fee_monthly
+    - property_address
+    - bedroom_number
+    - bathroom_number
+    - property_title
+    - building_type
+    - annual_taxes
+    - appliences_included
+    - window_coverings
+    - floor_space
+    - fire_protection
+    - amenities_nearby
+    - created_at
+    - updated_at
+    - artwork_id
+    - id
+    filter:
+      artwork:
+        owner_id:
+          _eq: X-Hasura-User-Id
+  role: user

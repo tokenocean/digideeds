@@ -33,22 +33,25 @@
   let update = async (e) => {
     e.preventDefault();
 
-    let { id, description, filename, title, tags } = artwork;
+    let { id, description, filename, title, tags, metadata } = artwork;
+
+    // here: problem on inserting tags
 
     query(updateTags, {
       tags: tags.map(({ tag }) => ({ tag, artwork_id: id })),
       artwork_id: id,
     })
-      .then(() => {
-        query(updateArtwork, {
-          artwork: { description, title },
-          id,
-        })
-          .then(() => {
-            goto(`/a/${artwork.slug}`);
-          })
-          .catch(err);
+    .then(() => {
+      query(updateArtwork, {
+        artwork: { description, title },
+        metadata,
+        id,
       })
+        .then(() => {
+          goto(`/a/${artwork.slug}`);
+        })
+        .catch(err);
+    })
       .catch(err);
   };
 
@@ -62,7 +65,7 @@
           <div>Back</div>
         </div>
       </a>
-    <h2>Edit artwork</h2>
+    <h2>Edit property</h2>
       <Form bind:artwork title={artwork.title} on:submit={update} />
   </div>
 </div>
