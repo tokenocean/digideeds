@@ -2,13 +2,9 @@
   import { post } from "$lib/api";
   import { browser } from "$app/env";
   import branding from "$lib/branding";
+  import { host } from "$lib/utils";
 
-  export async function load({
-    fetch,
-    page: {
-      params: { slug },
-    },
-  }) {
+  export async function load({ fetch, params: { slug } }) {
     const props = await fetch(`/artworks/${slug}.json`).then((r) => r.json());
 
     let { artwork } = props;
@@ -35,14 +31,17 @@
       metadata.keywords + " " + artwork.tags.map((t) => t.tag).join(" ");
     metadata.description = artwork.description;
 
-    if (artwork.filetype.includes("video"))
-      metadata.video = `/api/public/${artwork.filename}.${artwork.filetype.split("/")[1]}`;
-    else metadata.image = `/api/public/${artwork.filename}.${artwork.filetype.split("/")[1]}`;
+    let type = "image";
+    metadata[type] = `${host}/api/public/${artwork.filename}.png`;
+    if (artwork.filetype.includes("video")) type = "video";
+
+    metadata[type] = `${host}/api/public/${artwork.filename}.${
+      artwork.filetype.split("/")[1]
+    }`;
 
     props.metadata = metadata;
 
     return {
-      maxage: 90,
       props,
     };
   }
@@ -84,7 +83,6 @@
   } from "$lib/wallet";
   import { Psbt } from "liquidjs-lib";
   import { api, query } from "$lib/api";
-  import { SocialShare } from "$comp";
 
   export let artwork, others, metadata, views;
 
@@ -165,52 +163,10 @@
       await save();
       await fetch();
 
-      const sortedBidTransactions = artwork.transactions
-        .filter((t) => t.type === "bid")
-        .sort((a, b) => b.amount - a.amount);
-
-      const highestBidTransaction = sortedBidTransactions.length
-        ? sortedBidTransactions[0]
-        : null;
-
-      highestBidTransaction &&
-        highestBidTransaction.user.email &&
-        (await api
-          .url("/mail-outbid")
-          .auth(`Bearer ${$token}`)
-          .post({
-            to: highestBidTransaction.user.email,
-            userName: highestBidTransaction.user.full_name
-              ? highestBidTransaction.user.full_name
-              : "",
-            bidAmount: `${val(transaction.amount)} L-BTC`,
-            artworkTitle: artwork.title,
-            artworkUrl: `${branding.urls.protocol}/a/${artwork.slug}`,
-          }));
-
-      $user.email &&
-        (await api
-          .url("/mail-bid-processed")
-          .auth(`Bearer ${$token}`)
-          .post({
-            to: $user.email,
-            userName: $user.full_name ? $user.full_name : "",
-            bidAmount: `${val(transaction.amount)} L-BTC`,
-            artworkTitle: artwork.title,
-            artworkUrl: `${branding.urls.protocol}/a/${artwork.slug}`,
-          }));
-
-      artwork.owner.email &&
-        (await api
-          .url("/mail-someone-bid")
-          .auth(`Bearer ${$token}`)
-          .post({
-            to: artwork.owner.email,
-            userName: artwork.owner.full_name ? artwork.owner.full_name : "",
-            bidAmount: `${val(transaction.amount)} L-BTC`,
-            artworkTitle: artwork.title,
-            artworkUrl: `${branding.urls.protocol}/a/${artwork.slug}`,
-          }));
+      await api.url("/offer-notifications").auth(`Bearer ${$token}`).post({
+        artworkId: artwork.id,
+        transactionHash: transaction.hash,
+      });
 
       offering = false;
     } catch (e) {
@@ -270,29 +226,15 @@
       await save();
       await fetch();
 
-      $user.email &&
-        (await api
-          .url("/mail-purchase-successful")
-          .auth(`Bearer ${$token}`)
-          .post({
-            to: $user.email,
-            userName: $user.full_name ? $user.full_name : "",
-            bidAmount: `${val(artwork.list_price)} L-BTC`,
-            artworkTitle: artwork.title,
-            artworkUrl: `${branding.urls.protocol}/a/${artwork.slug}`,
-          }));
+      await api.url("/mail-purchase-successful").auth(`Bearer ${$token}`).post({
+        userId: $user.id,
+        artworkId: artwork.id,
+      });
 
-      artwork.owner.email &&
-        (await api
-          .url("/mail-artwork-sold")
-          .auth(`Bearer ${$token}`)
-          .post({
-            to: artwork.owner.email,
-            userName: artwork.owner.full_name ? artwork.owner.full_name : "",
-            bidAmount: `${val(artwork.list_price)} L-BTC`,
-            artworkTitle: artwork.title,
-            artworkUrl: `${branding.urls.protocol}/a/${artwork.slug}`,
-          }));
+      await api.url("/mail-artwork-sold").auth(`Bearer ${$token}`).post({
+        userId: artwork.owner.id,
+        artworkId: artwork.id,
+      });
     } catch (e) {
       err(e);
     }
@@ -468,8 +410,8 @@
 <div class="container mx-auto mt-10 md:mt-20">
   <div class="flex flex-wrap">
     <div class="lg:text-left w-full lg:w-1/3 lg:max-w-xs">
-      <h1 class="text-3xl font-black primary-color">
-        {artwork.title || 'Untitled'}
+      <h1 class="text-3xl font-black primary-color break-words">
+        {artwork.title || "Untitled"}
       </h1>
       <div class="flex mt-4 mb-6">
         <div class="my-auto">
@@ -492,7 +434,7 @@
       </div>
 
       <div class="flex flex-wrap justify-between text-left">
-        <a href={`/u/${artwork.artist.username}`}>
+        <a href={`/${artwork.artist.username}`}>
           <div class="flex mb-6">
             <Avatar user={artwork.artist} />
             <div class="ml-2 secondary-color">
@@ -501,17 +443,19 @@
             </div>
           </div>
         </a>
-        <a href={`/u/${artwork.owner.username}`}>
-          <div class="flex mb-6 secondary-color">
-            <Avatar user={artwork.owner} />
-            <div class="ml-2">
-              <div>@{artwork.owner.username}</div>
-              <div class="text-xs text-gray-600">
-                {artwork.held ? '' : 'Presumed '}Owner
+        {#if artwork.artist_id !== artwork.owner_id}
+          <a href={`/${artwork.owner.username}`}>
+            <div class="flex mb-6 secondary-color">
+              <Avatar user={artwork.owner} />
+              <div class="ml-2">
+                <div>@{artwork.owner.username}</div>
+                <div class="text-xs text-gray-600">
+                  {artwork.held ? "" : "Presumed "}Owner
+                </div>
               </div>
             </div>
-          </div>
-        </a>
+          </a>
+        {/if}
       </div>
 
       <div class="mobileImage">
@@ -647,7 +591,7 @@
       {#if artwork.description}
         <div
           class="mob-desc description text-gray-600 whitespace-pre-wrap break-words">
-          <h4 class="mt-10 font-bold">About this artwork</h4>
+          <h4 class="mt-10 font-bold">About this property</h4>
           <div class="desc-text {showMore ? 'openDesc' : ''}">
             {@html linkify(artwork.description)}
           </div>

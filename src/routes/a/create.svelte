@@ -129,17 +129,11 @@
 
     await requirePassword();
 
-    try {
-      contract = await createIssuance(artwork, domain, tx);
+    contract = await createIssuance(artwork, domain, tx);
 
-      await sign();
-      await broadcast(true);
-      await tick();
-    } catch (e) {
-      console.log(e, "wee", e.message.includes("Insufficient"));
-      if (e.message.includes("Insufficient")) throw e;
-      throw new Error("Issuance failed: " + e.message);
-    }
+    await sign();
+    await broadcast(true);
+    await tick();
 
     tx = $psbt.extractTransaction();
     artwork.asset = parseAsset(
@@ -231,6 +225,8 @@
       return err("File not uploaded or hasn't finished processing");
     if (!type) return err("Unrecognized file type");
 
+    if (!artwork.metadata.built_at) return err("Please enter the built at date");
+
     loading = true;
 
     try {
@@ -301,16 +297,10 @@
 
         if (result.error) throw new Error(result.error.message);
 
-        $user.email &&
-          (await api
-            .url("/mail-artwork-minted")
-            .auth(`Bearer ${$token}`)
-            .post({
-              to: $user.email,
-              userName: $user.full_name ? $user.full_name : "",
-              artworkTitle: artwork.title,
-              artworkUrl: `${branding.urls.protocol}/a/${artwork.slug}`,
-            }));
+        await api.url("/mail-artwork-minted").auth(`Bearer ${$token}`).post({
+          userId: $user.id,
+          artworkId: artwork.id,
+        });
       }
 
       $prompt = undefined;

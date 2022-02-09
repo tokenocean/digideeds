@@ -1,9 +1,8 @@
 <script context="module">
-  export async function load({ fetch, page }) {
+  export async function load({ fetch }) {
     const props = await fetch(`/artworks/recent.json`).then((r) => r.json());
 
     return {
-      maxage: 90,
       props,
     };
   }
@@ -21,15 +20,14 @@
   import { prefetch } from "$app/navigation";
   import { browser } from "$app/env";
 
-  onMount(() => {
-    if (browser) prefetch("/market");
-  });
+  onMount(() => browser && prefetch("/market"));
 
   export let featured;
   export let recent;
   export let latest;
 
   let current = 0;
+  $: artwork = featured && featured[current] && featured[current].artwork;
 
   let interval = setInterval(() => {
     if (!featured) return;
@@ -38,7 +36,6 @@
   }, 6000);
 
   onDestroy(() => clearInterval(interval));
-
 </script>
 
 <div class="flex header-container mx-auto justify-center marg-bottom">
@@ -54,28 +51,28 @@
   </div>
 </div>
 
-{#if featured[current]}
+{#if artwork}
   <div class="flex secondary-header marg-bottom">
     <div
       class="container flex mx-auto flex-col justify-end md:justify-center secondary-header-text m-10 pl-6 z-10"
     >
       <div class="blur-bg">
-        <h2>{featured[current].artwork.artist.username}</h2>
+        <h2>{artwork.artist.username}</h2>
         <p>
-          {featured[current].artwork.title}
-          <a href="/a/{featured[current].artwork.slug}">
+          {artwork.title}
+          <a href="/a/{artwork.slug}">
             <button
               class="button-transparent header-button border mt-10"
               style="border-color: white; color: white"
             >
-              View Artwork</button
+              View Property</button
             ></a
           >
         </p>
       </div>
     </div>
 
-    {#if featured[current].artwork.filetype.includes("video")}
+    {#if artwork.filetype.includes("video")}
       <video
         in:fade
         out:fade
@@ -84,7 +81,7 @@
         muted
         playsinline
         loop
-        src={`/api/ipfs/${featured[current].artwork.filename}`}
+        src={`/api/public/${artwork.filename}.${artwork.filetype.split("/")[1]}`}
         :key={featured[current].id}
       />
     {:else}
@@ -92,8 +89,8 @@
         in:fade
         out:fade
         class="lazy cover absolute secondary-header"
-        alt={featured[current].artwork.title}
-        src={`/api/ipfs/${featured[current].artwork.filename}`}
+        alt={artwork.title}
+        src={`/api/public/${artwork.filename}.${artwork.filetype.split("/")[1]}`}
       />
     {/if}
   </div>

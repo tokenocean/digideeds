@@ -1,16 +1,15 @@
 <script context="module">
-  export async function load({ fetch, page, session }) {
+  export async function load({ fetch, params: { slug }, session }) {
     if (!(session && session.user)) return {
       status: 302,
       redirect: '/login'
     } 
 
-    const props = await fetch(`/artworks/${page.params.slug}.json`).then((r) =>
+    const props = await fetch(`/artworks/${slug}.json`).then((r) =>
       r.json()
     );
 
     return {
-      maxage: 90,
       props,
     };
   }
@@ -84,7 +83,7 @@
         id: artwork.id,
       }).catch(err);
 
-      info(`Artwork sent to ${recipient.username}!`);
+      info(`Property sent to ${recipient.username}!`);
       goto(`/a/${artwork.slug}`);
     } catch (e) {
       err(e);
@@ -107,7 +106,7 @@
 
 {#if $addresses}
 <div class="container mx-auto sm:justify-between mt-10 md:mt-20">
-  <h2 class="mb-4">Transfer Artwork</h2>
+  <h2 class="mb-4">Transfer Property</h2>
 
   {#if loading}
     <ProgressLinear />
