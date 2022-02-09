@@ -108,3 +108,5 @@ Get a deposit address from the wallet page or users table in the db and send an 
     docker exec -it liquid elements-cli -datadir=/home/elements/.elements sendtoaddress <address> <amount>
 
 ## FAQ
+
+Frequently Asked Questions
