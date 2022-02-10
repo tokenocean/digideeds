@@ -50,7 +50,7 @@
       List your property as an NFT, buy a property with bitcoin.
     </h5>
     <div class="block md:flex justify-center mx-auto">
-      <a class="primary-btn mb-6 mb:0 mx-0 md:mx-2" href={`/market`}>List</a>
+      <a class="primary-btn mb-6 mb:0 mx-0 md:mx-2" href={`/a/create`}>List</a>
       <a class="primary-btn mx-0 md:mx-2" href={`/market`}>Buy</a>
     </div>
   </div>
