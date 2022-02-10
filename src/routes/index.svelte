@@ -73,10 +73,10 @@
 
       <p class="mb-3 font-normal text-gray-700">
         Bitcoin is a peer-to-peer, decentralized, and censorship resistant
-        electronic cash system. It allows for immutable payments and assets
-        stored on the blockchain ledger. It is the first system to successfully
-        implement digital scarcity and is rapidly changing the world with it's
-        many use cases.
+        electronic cash system. It allows for immutable payments and assets that
+        are stored on the blockchain ledger. It is the first system to
+        successfully implement digital scarcity and is rapidly changing the
+        world with it's many use cases.
       </p>
       <a
         href="https://bitcoin.org"
