@@ -1,9 +1,9 @@
 module.exports = {
-  projectName: "Raretoshi",
+  projectName: "DigiDeeds",
   urls: {
-    protocol: "https://raretoshi.com",
+    protocol: "https://digideeds.io",
   },
   emails: {
-    support: "support@raretoshi.com",
+    support: "support@digideeds.io",
   },
 };

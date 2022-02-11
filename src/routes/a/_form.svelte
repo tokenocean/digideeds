@@ -100,14 +100,15 @@
     <h3>Property Summary</h3>
     <hr />
   </div>
-  <div class="flex flex-col mb-6">
+  <!-- Maybe not needed since we have the artwork title -->
+  <!-- <div class="flex flex-col mb-6">
     <label for="property_title">Property Title</label>
     <input
       id="property_title"
       placeholder="Strata? Leasehold?"
       bind:value={artwork.metadata.property_title}
     />
-  </div>
+  </div> -->
   <div class="flex flex-col mb-6">
     <label for="building_type">Building Type</label>
     <input
@@ -120,6 +121,7 @@
     <label for="annual_taxes">Annual Property Taxes</label>
     <input
       id="annual_taxes"
+      type="number"
       placeholder="How much the property taxes are?"
       bind:value={artwork.metadata.annual_taxes}
     />
@@ -147,8 +149,8 @@
   </div>
   <div class="flex flex-col mb-6">
     <ToggleSwitch
-      id="list-price"
-      label="Appliences"
+      id="appliences_included"
+      label="Appliences Included"
       checked={artwork.metadata.appliences_included}
       on:change={(e) =>
         (artwork.metadata.appliences_included = e.target.checked)}
@@ -156,7 +158,7 @@
   </div>
   <div class="flex flex-col mb-6">
     <ToggleSwitch
-      id="list-price"
+      id="window_coverings"
       label="Window Coverings"
       checked={artwork.metadata.window_coverings}
       on:change={(e) =>
@@ -180,7 +182,7 @@
     <label for="fire_protection">Fire Protection</label>
     <input
       id="fire_protection"
-      placeholder="What is the fire protection?"
+      placeholder="Fire protection"
       bind:value={artwork.metadata.fire_protection}
     />
   </div>
