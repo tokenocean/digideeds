@@ -23,8 +23,13 @@
       </a>
 
       <p class="mt-4">&copy;2021 {branding.projectName}</p>
-      <div class="flex items-center mt-12">
-        <p class="pr-3">Powered by:</p>
+      <div class="mt-12">
+        <p class="pb-3">Powered by:</p>
+        <img
+          src="/btc-logo.svg"
+          alt="bitcoin logo"
+          class="pb-3 text-white w-32"
+        />
         <img src="/liquid_logo.svg" alt="liquid network logo" />
       </div>
     </div>

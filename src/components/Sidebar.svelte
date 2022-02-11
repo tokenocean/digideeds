@@ -20,12 +20,12 @@
     top: 0;
     transition: left 0.3s ease-in-out;
     z-index: 20;
-    background-color: white;
+    background-color: #eae2b7;
   }
 
   .menu-container {
     width: 70%;
-    background-color: white;
+    background-color: #eae2b7;
     position: absolute;
     height: 100vh;
   }
@@ -43,7 +43,7 @@
 
   @keyframes changeColor {
     0% {
-      background-color: white;
+      background-color: #eae2b7;
     }
     100% {
       background-color: rgba(3, 3, 3, 0.8);
