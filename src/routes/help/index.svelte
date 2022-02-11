@@ -11,13 +11,32 @@
     <h2 class="mb-10">FAQ</h2>
     <div class="faq-content">
       <div class="faq">
+        <h3>What is bitcoin?</h3>
+        <p>
+          Bitcoin is a peer-to-peer, decentralized, and censorship resistant
+          electronic cash system. It allows for immutable payments and assets
+          that are stored on the blockchain ledger. It is the first system to
+          successfully implement digital scarcity and is rapidly changing the
+          world with it's many use cases.
+        </p>
+
         <h3>What's an NFT?</h3>
 
         <p>
-          An NFT is a non-fungible token, a kind of digital bearer asset that
-          represents ownership of a unique item or property. NFT's are designed
-          to be distinguishable from each other so that no two tokens are the
-          same, making them ideal for representing collectibles.
+          An NFT otherwise known as a Non-Fungible Token, is a digital asset
+          that is minted on a blockchain. It's ownership can be
+          cryptographically verified and it can be traded for value. Anything in
+          the physical or digital world can become an NFT. DigiDeeds uses the
+          bitcoin blockchain and Liquid Network to mint NFTs, making digital
+          real estate possible.
+        </p>
+
+        <h3>What is a digital deed?</h3>
+
+        <p>
+          Owning a digital deed means minting and holding an NFT for a property.
+          You can then list your property for sale on the DigiDeeds marketplace
+          and choose to sell it if you find a suitable buyer.
         </p>
 
         <h3>How do I use them?</h3>
@@ -32,20 +51,20 @@
         <h3>How are they created?</h3>
 
         <p>
-          When an artist first uploads an image or video file for an property,
-          the file is added to the IPFS network and assigned a hash number that
-          uniquely identifies the contents of the file. The artist's {branding.projectName}
+          When a property owner first uploads an image or video file for their
+          property, the file is added to the IPFS network and assigned a hash
+          number that uniquely identifies the contents of the file. The owner's {branding.projectName}
           wallet will then generate a Liquid asset issuance transaction containing
           the title of the property and its hash and broadcast it to be permanently
-          recorded in the Liquid blockchain.
+          recorded on the Liquid blockchain.
         </p>
 
-        <h3>Who can publish their art here?</h3>
+        <h3>Who can list their property here?</h3>
 
         <p>
-          Anyone can apply to become an artist on our platform. Your application
-          will be reviewed by our team and we'll reach out to let you know if
-          you’ve been accepted.
+          Anyone can list a property on our platform. Your application will be
+          reviewed by our team and we'll reach out to let you know if you’ve
+          been accepted.
         </p>
 
         <h3>
@@ -56,16 +75,13 @@
           {branding.projectName} is the first NFT platform that uses the Bitcoin
           Liquid Network instead of Ethereum or Counterparty. The Liquid network
           is a bitcoin sidechain where transaction fees are denominated in L-BTC,
-          Liquid Bitcoin, which is pegged 1:1 to bitcoin.
-        </p>
-
-        <p>
+          Liquid Bitcoin, which is pegged 1:1 to bitcoin.<br /><br />
           Transaction fees on Liquid are orders of magnitude cheaper than on the
-          bitcoin or ethereum networks. Liquid also supports native asset
-          issuance and atomic swaps which make it possible for people who don't
-          know or trust each other to exchange their different tokens and assets
-          directly in a single transaction without needing to go through a
-          trusted 3rd party escrow agent.
+          bitcoin or ethereum networks. Liquid also supports native asset issuance
+          and atomic swaps which make it possible for people who don't know or trust
+          each other to exchange their different tokens and assets directly in a
+          single transaction without needing to go through a trusted 3rd party escrow
+          agent.
         </p>
 
         <h3>How do I get some L-BTC?</h3>
@@ -76,7 +92,8 @@
             target="_blank">this video tutorial</a
           >
           to learn how to use the Side Swap mobile app to turn BTC into L-BTC so
-          you can bid on art listed on {branding.projectName}.
+          you can bid on art listed on {branding.projectName}. There are many
+          other ways to aquire L-BTC as well.
         </p>
       </div>
       <div class="contact boxShadow">
@@ -84,13 +101,17 @@
         <ul>
           <li><a href="/guide">Explore user guide</a></li>
           <li>
-            <a href={branding.urls.external.discord} target="_blank" rel='noreferrer'
-              >Chat with support</a
+            <a
+              href={branding.urls.external.discord}
+              target="_blank"
+              rel="noreferrer">Chat with support</a
             >
           </li>
           <li>
-            <a href="mailto:{branding.emails.support}" target="_blank" rel='noreferrer'
-              >Email support</a
+            <a
+              href="mailto:{branding.emails.support}"
+              target="_blank"
+              rel="noreferrer">Email support</a
             >
           </li>
         </ul>

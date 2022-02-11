@@ -7,16 +7,13 @@
   let toggle = () => (open = !open);
 </script>
 
-<div class="flex justify-between items-center menu relative">
+<div class="text-black flex justify-between items-center menu relative">
   <Search suggest={false} />
   <a sveltekit:prefetch href="/market"
     ><button on:click={toggle}>Market</button></a
   >
   <a sveltekit:prefetch href="/activity"
     ><button on:click={toggle}>Activity</button></a
-  >
-  <a href={branding.urls.external.blog}
-    ><button on:click={toggle}>Blog</button></a
   >
   <a href="/help"><button on:click={toggle}>Help</button></a>
   {#if $session?.user}
@@ -39,7 +36,7 @@
   }
 
   .menu :global(.search) {
-    border: 1px solid lightgray;
+    border: 1px solid black;
     border-radius: 30px;
     margin-right: 15px;
     width: 250px;

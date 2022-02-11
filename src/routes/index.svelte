@@ -39,14 +39,14 @@
 </script>
 
 <div
-  class="bg-primary pb-20 md:pb-[128px] flex header-container mx-auto justify-center"
+  class="bg-[#003049] pb-20 md:pb-[128px] flex header-container mx-auto justify-center"
 >
   <div class="header text-center">
-    <h1 class="text-center md:w-full">
-      <span class=" text-[#05F29B]">{branding.projectName}</span>
+    <h1 class="text-center md:w-full text-[#EAE2B7]">
+      <span class=" text-[#F77F00]">{branding.projectName}</span>
       <br />real estate
     </h1>
-    <h5 class="md:max-w-lg mx-auto text-left md:text-center">
+    <h5 class="md:max-w-lg mx-auto text-left md:text-center text-white">
       List your property as an NFT, buy a property with bitcoin.
     </h5>
     <div class="block md:flex justify-center mx-auto">
@@ -58,105 +58,90 @@
 
 <div class="flex justify-center flex-wrap">
   <div
-    class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md m-6"
+    class="max-w-lg bg-white rounded-lg border border-gray-200 shadow-md m-6"
   >
     <img
-      class="rounded-t-lg h-72 object-cover"
-      src="/bitcoin.jpg"
-      alt="bitcoin"
-    />
-
-    <div class="p-5">
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-        What is bitcoin?
-      </h5>
-
-      <p class="mb-3 font-normal text-gray-700">
-        Bitcoin is a peer-to-peer, decentralized, and censorship resistant
-        electronic cash system. It allows for immutable payments and assets that
-        are stored on the blockchain ledger. It is the first system to
-        successfully implement digital scarcity and is rapidly changing the
-        world with it's many use cases.
-      </p>
-      <a
-        href="https://bitcoin.org"
-        class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300"
-      >
-        Read more
-        <svg
-          class="ml-2 -mr-1 w-4 h-4"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-          ><path
-            fill-rule="evenodd"
-            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-            clip-rule="evenodd"
-          /></svg
-        >
-      </a>
-    </div>
-  </div>
-  <div
-    class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md m-6"
-  >
-    <img class="rounded-t-lg h-72 object-cover" src="/nft.jpg" alt="nft" />
-
-    <div class="p-5">
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-        What is an NFT?
-      </h5>
-
-      <p class="mb-3 font-normal text-gray-700">
-        An NFT otherwise known as a Non-Fungible Token, is a digital asset that
-        is minted on a blockchain. It's ownership can be cryptographically
-        verified and it can be traded for value. Anything in the physical or
-        digital world can become an NFT. DigiDeeds uses the bitcoin blockchain
-        and Liquid Network to mint NFTs, making digital real estate possible.
-      </p>
-      <a
-        href="https://wikiless.org/wiki/Non-fungible_token"
-        class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300"
-      >
-        Read more
-        <svg
-          class="ml-2 -mr-1 w-4 h-4"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-          ><path
-            fill-rule="evenodd"
-            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-            clip-rule="evenodd"
-          /></svg
-        >
-      </a>
-    </div>
-  </div>
-  <div
-    class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md m-6"
-  >
-    <img
-      class="rounded-t-lg h-72 object-cover"
+      class="w-full rounded-t-lg h-80 object-cover"
       src="/houses.jpg"
       alt="houses"
     />
 
     <div class="p-5">
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-        What is a digital deed?
+        What is a DigiDeed?
       </h5>
 
       <p class="mb-3 font-normal text-gray-700">
-        Owning a digital deed means minting and holding an NFT for a property.
-        You can then list your property for sale on the DigiDeeds marketplace
-        and choose to sell it if you find a suitable buyer.
+        Owning a digital deed means minting and holding an <a
+          href="https://wikiless.org/wiki/Non-fungible_token"
+          target="_blank"
+          rel="noreferrer"
+          class="text-[#FCBF49] font-bold">NFT</a
+        >
+        for a property. You can then list your property for sale on the
+        DigiDeeds marketplace and choose to sell it if you find a suitable
+        buyer. DigiDeeds leverages
+        <a
+          href="https://bitcoin.org"
+          target="_blank"
+          rel="noreferrer"
+          class="text-[#FCBF49] font-bold">bitcoin</a
+        >
+        and the
+        <a
+          href="https://blockstream.com/liquid/"
+          target="_blank"
+          rel="noreferrer"
+          class="text-[#FCBF49] font-bold">Liquid Network</a
+        > to mint and facilitate sales of properties between buyers and sellers.
       </p>
       <a
         href="/market"
-        class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300"
+        class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-black bg-[#FCBF49] rounded-lg hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300"
       >
         Explore properties
+        <svg
+          class="ml-2 -mr-1 w-4 h-4"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            fill-rule="evenodd"
+            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+            clip-rule="evenodd"
+          /></svg
+        >
+      </a>
+    </div>
+  </div>
+  <div
+    class="max-w-lg bg-white rounded-lg border border-gray-200 shadow-md m-6"
+  >
+    <img
+      class="w-full rounded-t-lg h-80 object-cover"
+      src="/bitcoin.jpg"
+      alt="bitcoin"
+    />
+
+    <div class="p-5">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+        Why should I sell my property for bitcoin?
+      </h5>
+
+      <p class="mb-3 font-normal text-gray-700">
+        While you could sell your property for a fiat currency like USD or CAD,
+        you would then want to immediately invest the money to combat inflation.
+        By selling your property for bitcoin you can hold this digital asset and
+        watch your wealth grow over time. While there is always downside risk to
+        investments, bitcoin is proving itself to be a reliable store of value.
+      </p>
+      <a
+        href="https://www.fidelitydigitalassets.com/bin-public/060_www_fidelity_com/documents/FDAS/bitcoin-first.pdf"
+        target="_blank"
+        rel="noreferrer"
+        class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-black bg-[#FCBF49] rounded-lg hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300"
+      >
+        Read more
         <svg
           class="ml-2 -mr-1 w-4 h-4"
           fill="currentColor"
@@ -222,9 +207,9 @@
   </div>
 {/if}
 
-<div class="bg-[#0F71F2] py-[128px]">
+<div class="bg-[#003049] py-[128px]">
   <div class="container mx-auto px-10">
-    <h3>Latest Properties</h3>
+    <h3 class="text-white">Latest Properties</h3>
   </div>
   <div class="container mx-auto flex pb-1 overflow-x-auto">
     {#each latest as transaction}
@@ -249,7 +234,7 @@
   .header h5 {
     font-size: 22px;
     line-height: 36px;
-    color: #2d2e32;
+
     margin-top: 24px;
     margin-bottom: 34px;
   }

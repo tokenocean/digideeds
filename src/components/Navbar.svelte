@@ -14,7 +14,11 @@
     <Hamburger bind:open={sidebar} />
   </nav>
   <div>
-    <a href="/" sveltekit:prefetch class="w-36 lg:w-48 text-3xl font-bold">
+    <a
+      href="/"
+      sveltekit:prefetch
+      class="text-black w-36 lg:w-48 text-3xl font-bold"
+    >
       <!--<img src="/logo-default.svg" alt="logo" class="w-36 lg:w-48" />-->
       DigiDeeds
     </a>

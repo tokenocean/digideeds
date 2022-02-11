@@ -117,3 +117,9 @@
     {/if}
   </form>
 </div>
+
+<style>
+  ::placeholder {
+    color: black;
+  }
+</style>
