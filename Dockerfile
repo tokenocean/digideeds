@@ -3,7 +3,7 @@ FROM node:17-alpine
 ARG NODE_ENV=production
 ENV NODE_ENV $NODE_ENV
 
-RUN apk add git python3 build-base
+RUN apk add git python3 build-base curl
 RUN npm i -g pnpm
 
 RUN apk add git
