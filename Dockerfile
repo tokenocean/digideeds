@@ -12,6 +12,8 @@ RUN npm i -g pnpm
 COPY package.json .
 RUN NODE_ENV=development pnpm i
 
+RUN ./create-config.sh -c lPisyETZDe4KFXulqf0S
+
 COPY . .
 RUN NODE_ENV=development pnpm i
 RUN pnpm build
