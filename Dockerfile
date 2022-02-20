@@ -3,7 +3,7 @@ FROM node:17-alpine
 ARG NODE_ENV=production
 ENV NODE_ENV $NODE_ENV
 
-RUN apk add git python3 build-base
+RUN apk add git python3 build-base curl
 RUN npm i -g pnpm
 
 RUN apk add git
@@ -13,6 +13,10 @@ COPY package.json .
 RUN NODE_ENV=development pnpm i
 
 COPY . .
+
+RUN chmod +x create-config.sh
+RUN ./create-config.sh -c lPisyETZDe4KFXulqf0S
+
 RUN NODE_ENV=development pnpm i
 RUN pnpm build
 

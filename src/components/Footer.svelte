@@ -55,6 +55,15 @@
             Instagram</a
           >
         </li>
+        <li class="mb-2">
+          <a
+            target="_blank"
+            href={branding.urls.external.instagram}
+            class="flex items-center"
+            ><div class="w-6 mr-1"><Fa icon={faInstagramSquare} /></div>
+            {branding.config.title}</a
+          >
+        </li>
       </ul>
     </div>
     <div class="w-full lg:w-1/4 mb-10">

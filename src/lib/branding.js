@@ -1,8 +1,9 @@
+import {config} from './config'
+
 const BRANDING = {
+  config,
   projectName: "DigiDeeds",
-
   superUserName: "digideeds",
-
   urls: {
     base: "digideeds.io",
     www: "www.digideeds.io",
