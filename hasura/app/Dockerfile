@@ -10,11 +10,11 @@ RUN npm i -g pnpm
 WORKDIR /app
 COPY package.json .
 
-RUN chmod +x create-config.sh
-RUN ./create-config.sh -c lPisyETZDe4KFXulqf0S
-
 RUN pnpm install
 
 COPY . .
+
+RUN chmod +x create-config.sh
+RUN ./create-config.sh -c lPisyETZDe4KFXulqf0S
 
 CMD ["pnpm", "start"]
