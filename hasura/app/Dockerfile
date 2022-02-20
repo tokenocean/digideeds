@@ -4,7 +4,7 @@ ARG NODE_ENV=production
 ENV NODE_ENV $NODE_ENV
 ENV NODE_OPTIONS --openssl-legacy-provider
 
-RUN apk add git ffmpeg python3 build-base vips-dev
+RUN apk add git ffmpeg python3 build-base vips-dev curl
 RUN npm i -g pnpm
 
 WORKDIR /app
