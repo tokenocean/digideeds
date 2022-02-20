@@ -26,7 +26,7 @@
           An NFT otherwise known as a Non-Fungible Token, is a digital asset
           that is minted on a blockchain. It's ownership can be
           cryptographically verified and it can be traded for value. Anything in
-          the physical or digital world can become an NFT. DigiDeeds uses the
+          the physical or digital world can become an NFT. {branding.projectName} uses the
           bitcoin blockchain and Liquid Network to mint NFTs, making digital
           real estate possible.
         </p>
@@ -35,7 +35,7 @@
 
         <p>
           Owning a digital deed means minting and holding an NFT for a property.
-          You can then list your property for sale on the DigiDeeds marketplace
+          You can then list your property for sale on the {branding.projectName} marketplace
           and choose to sell it if you find a suitable buyer.
         </p>
 

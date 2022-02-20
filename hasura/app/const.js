@@ -1,9 +1,18 @@
-module.exports = {
-  projectName: "DigiDeeds",
+const config = require("./config");
+
+const defaultConst = {
+  // Add here defaults
+  projectName: "Default",
   urls: {
-    protocol: "https://digideeds.io",
+    protocol: "https://default.io",
   },
   emails: {
-    support: "support@digideeds.io",
+    support: "support@default.io",
   },
 };
+
+console.log("defaultConst", defaultConst);
+console.log("config", config);
+console.log("exported", { ...defaultConst, ...config });
+
+module.exports = { ...defaultConst, ...config };

@@ -6,8 +6,8 @@ do
     esac
 done
 
-curl --location --request POST "https://us-central1-token-ocean-admin.cloudfunctions.net/getConfig/ui/$config_id" \
+curl --location --request POST "https://us-central1-token-ocean-admin.cloudfunctions.net/getConfig/app/$config_id" \
 --header "auth-secret: $secret" \
 --data-raw '{
   "test": "yes"
-}' -o src/lib/config.js
+}' -o app/config.js

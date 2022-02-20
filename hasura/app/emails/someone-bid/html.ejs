@@ -93,7 +93,7 @@
   <body>
     <div class="container">
       <div class="logo">
-        <img src="https://digideeds.io/ipdp.png" />
+        <img src="<%= httpsUrl %>/logo.png" />
       </div>
       <p>Hi <%= userName %></p>
       <p>
@@ -102,20 +102,20 @@
       <p>
         We will continue to update you via email if you receive more bids.
       </p>
-      <p>Best, <br />DigiDeeds Team</p>
+      <p>Best, <br /><%= projectName %> Team</p>
       <hr />
       <div class="footer">
         <p>Follow Us</p>
         <div class="social">
-          <a href="https://www.twitter.com/digideeds">
-            <img style="width: 20px" src="https://digideeds.io/twitter.png" />
+          <a href="<%= twitterUrl %>">
+            <img style="width: 20px" src="<%= httpsUrl %>/twitter.png" />
           </a>
-          <a href="https://t.me/digideeds">
-            <img style="width: 20px" src="https://digideeds.io/telegram.png" />
+          <a href="<%= telegramUrl %>">
+            <img style="width: 20px" src="<%= httpsUrl %>/telegram.png" />
           </a>
         </div>
-        <a class="visit" href="https://digideeds.io">Visit website</a>
-        <p>© DigiDeeds 2021</p>
+        <a class="visit" href="<%= httpsUrl %>">Visit website</a>
+        <p>© <%= projectName %> <%= new Date().getFullYear() %> </p>
       </div>
     </div>
   </body>

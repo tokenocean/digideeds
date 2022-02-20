@@ -79,8 +79,8 @@
           class="text-[#FCBF49] font-bold">NFT</a
         >
         for a property. You can then list your property for sale on the
-        DigiDeeds marketplace and choose to sell it if you find a suitable
-        buyer. DigiDeeds leverages
+        {branding.projectName} marketplace and choose to sell it if you find a suitable
+        buyer. {branding.projectName} leverages
         <a
           href="https://bitcoin.org"
           target="_blank"

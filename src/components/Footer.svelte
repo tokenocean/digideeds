@@ -18,8 +18,8 @@
       class="flex flex-col text-sm w-full lg:w-2/4 mb-10 order-last lg:order-first"
     >
       <a href="/" class="w-48 text-3xl font-bold">
-        <!--<img src="/logo-white.svg" alt="logo" class="w-48" />-->
-        DigiDeeds
+        <img src="/logo.png" alt="logo" class="w-36 lg:w-48" />
+        <!-- {branding.projectName} -->
       </a>
 
       <p class="mt-4">&copy;2021 {branding.projectName}</p>
@@ -53,15 +53,6 @@
             class="flex items-center"
             ><div class="w-6 mr-1"><Fa icon={faInstagramSquare} /></div>
             Instagram</a
-          >
-        </li>
-        <li class="mb-2">
-          <a
-            target="_blank"
-            href={branding.urls.external.instagram}
-            class="flex items-center"
-            ><div class="w-6 mr-1"><Fa icon={faInstagramSquare} /></div>
-            {branding.config.title}</a
           >
         </li>
       </ul>

@@ -1,43 +1,40 @@
-import {config} from './config'
+import { config } from "./config";
 
-const BRANDING = {
-  config,
-  projectName: "DigiDeeds",
-  superUserName: "digideeds",
+const defaultBranding = {
+  // Add here defaults
+  projectName: "Default",
+  superUserName: "default",
   urls: {
-    base: "digideeds.io",
-    www: "www.digideeds.io",
-    protocol: "https://digideeds.io",
+    base: "default.io",
+    www: "www.default.io",
+    protocol: "https://default.io",
     external: {
-      twitter: "https://twitter.com/digideeds",
-      telegram: "https://t.me/digideeds",
-      blog: "https://blog.digideeds.io/",
+      twitter: "https://twitter.com/default",
+      telegram: "https://t.me/default",
+      blog: "https://blog.default.io/",
     },
   },
 
   meta: {
-    title: "DigiDeeds",
+    title: "Default",
     keywords: "Bitcoin Liquid NFT Real Estate",
-    description: "Digital deeds on the bitcoin liquid network.",
-    image: "https://digideeds.io/splash.png",
-    url: "https://digideeds.io/",
+    description: "Digital assets on the bitcoin liquid network.",
+    image: "https://default.io/splash.png",
+    url: "https://default.io/",
 
     twitter: {
       card: "summary_large_image",
-      creator: "@digideeds",
-      site: "@digideeds",
+      creator: "@default",
+      site: "@default",
     },
-
-    artwork: (art) => ({
-      title: `DigiDeeds - ${art.title}`,
-      image: `/api/ipfs/${art.filename}`,
-      url: `https://digideeds.io/a/${art.slug}`,
-    }),
   },
 
   emails: {
-    support: "support@digideeds.com",
+    support: "support@default.com",
   },
 };
+const brandingByConfig = {
+  ...defaultBranding, ...config,
+};
 
-export default BRANDING;
+export default brandingByConfig;

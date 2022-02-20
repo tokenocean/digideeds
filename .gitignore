@@ -26,4 +26,5 @@ cypress/integration/2-advanced-examples
 **/.pnpm-debug.log
 .svelte-kit
 .env.local
-
+hasura/app/config.js
+src/lib/config.js

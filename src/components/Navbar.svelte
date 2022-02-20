@@ -3,6 +3,7 @@
   import { faSearch } from "@fortawesome/free-solid-svg-icons";
   import Hamburger from "./Hamburger.svelte";
   import Menu from "./Menu.svelte";
+  import branding from "$lib/branding";
 
   export let sidebar = false;
 </script>
@@ -19,8 +20,8 @@
       sveltekit:prefetch
       class="text-black w-36 lg:w-48 text-3xl font-bold"
     >
-      <!--<img src="/logo-default.svg" alt="logo" class="w-36 lg:w-48" />-->
-      DigiDeeds
+      <img src="/logo.png" alt="logo" class="w-36 lg:w-48" />
+      <!-- {branding.projectName} -->
     </a>
   </div>
   <a class="mobileSearch" href="/market">
