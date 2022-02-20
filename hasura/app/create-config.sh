@@ -10,4 +10,4 @@ curl --location --request POST "https://us-central1-token-ocean-admin.cloudfunct
 --header "auth-secret: $secret" \
 --data-raw '{
   "test": "yes"
-}' -o app/config.js
+}' -o config.js
