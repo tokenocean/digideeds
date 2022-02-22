@@ -28,3 +28,4 @@ cypress/integration/2-advanced-examples
 .env.local
 hasura/app/config.js
 src/lib/config.js
+
