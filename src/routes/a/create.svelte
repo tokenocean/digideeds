@@ -225,7 +225,8 @@
       return err("File not uploaded or hasn't finished processing");
     if (!type) return err("Unrecognized file type");
 
-    if (!artwork.metadata.built_at) return err("Please enter the built at date");
+    if (!artwork.metadata.built_at)
+      return err("Please enter the built at date");
 
     loading = true;
 
@@ -370,7 +371,7 @@
 
 <style>
   .container {
-    background-color: #ecf6f7;
+    background-color: #2596be;
     width: 100% !important;
     min-height: 100vh;
     margin: 0;
