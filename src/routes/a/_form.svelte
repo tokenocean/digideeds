@@ -40,7 +40,8 @@
   });
 
   $: focus($page);
-  export let focus = (p) => browser && p && tick().then(() => input && input.select());
+  export let focus = (p) =>
+    browser && p && tick().then(() => input && input.select());
 
   $: value = artwork.tags.map(({ tag }) => ({
     value: tag,
@@ -161,8 +162,7 @@
       id="window_coverings"
       label="Window Coverings"
       checked={artwork.metadata.window_coverings}
-      on:change={(e) =>
-        (artwork.metadata.window_coverings = e.target.checked)}
+      on:change={(e) => (artwork.metadata.window_coverings = e.target.checked)}
     />
   </div>
   <div class="flex flex-col mb-6">
@@ -259,8 +259,8 @@
   input[type="checkbox"]:checked {
     appearance: none;
     border: 5px solid #fff;
-    outline: 2px solid #6ed8e0;
-    background-color: #6ed8e0;
+    outline: 2px solid #2596be;
+    background-color: #2596be;
     padding: 2px;
     border-radius: 0;
   }

@@ -6,9 +6,7 @@
         redirect: "/login",
       };
 
-    const props = await fetch(`/artworks/${slug}.json`).then((r) =>
-      r.json()
-    );
+    const props = await fetch(`/artworks/${slug}.json`).then((r) => r.json());
 
     if (!props.artwork)
       return {
@@ -43,13 +41,7 @@
     updateArtworkWithRoyaltyRecipients,
   } from "$queries/artworks";
   import { api, query } from "$lib/api";
-  import {
-    fee,
-    password,
-    sighash,
-    prompt,
-    psbt,
-  } from "$lib/store";
+  import { fee, password, sighash, prompt, psbt } from "$lib/store";
   import { requirePassword } from "$lib/auth";
   import { createTransaction } from "$queries/transactions";
   import {
@@ -673,15 +665,15 @@
   input[type="checkbox"]:checked {
     appearance: none;
     border: 5px solid #fff;
-    outline: 2px solid #6ed8e0;
-    background-color: #6ed8e0;
+    outline: 2px solid #2596be;
+    background-color: #2596be;
     padding: 2px;
     border-radius: 0;
   }
 
   input[type="radio"]:checked {
     appearance: none;
-    border: 7px solid #6ed8e0;
+    border: 7px solid #2596be;
     background-color: #fff;
     padding: 2px;
     border-radius: 100%;

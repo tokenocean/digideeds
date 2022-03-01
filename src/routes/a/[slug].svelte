@@ -258,9 +258,18 @@
       { label: "Amenities nearby", value: artwork.metadata.amenities_nearby },
       { label: "Fire protection", value: artwork.metadata.fire_protection },
       { label: "Annual taxes", value: `$${artwork.metadata.annual_taxes}` },
-      { label: "Monthly maintenance fee", value: `$${artwork.metadata.maintenance_fee_monthly}` },
-      { label: "Appliences included", value: artwork.metadata.appliences_included ? "Yes" : "No" },
-      { label: "Window coverings", value: artwork.metadata.window_coverings ? "Yes" : "No" },
+      {
+        label: "Monthly maintenance fee",
+        value: `$${artwork.metadata.maintenance_fee_monthly}`,
+      },
+      {
+        label: "Appliences included",
+        value: artwork.metadata.appliences_included ? "Yes" : "No",
+      },
+      {
+        label: "Window coverings",
+        value: artwork.metadata.window_coverings ? "Yes" : "No",
+      },
     ];
   };
 
@@ -554,7 +563,7 @@
 
 <style>
   :global(.description a) {
-    color: #3ba5ac;
+    color: #52b9ff;
   }
 
   .disabled {
@@ -663,7 +672,7 @@
     }
 
     .show-more {
-      color: #3ba5ac;
+      color: #52b9ff;
       font-weight: bold;
       text-align: right;
       margin-top: 10px;

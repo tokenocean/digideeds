@@ -36,14 +36,14 @@
             </div>
           </a>
         {/if}
-      <a href="/wallet/setup">
-        <div
-          class="flex flex-wrap justify-center sm:justify-start items-center sm:items-start h-full"
-        >
-          <Fa icon={faCog} class="my-auto mr-2" />
-          <div>Settings</div>
-        </div>
-      </a>
+        <a href="/wallet/setup">
+          <div
+            class="flex flex-wrap justify-center sm:justify-start items-center sm:items-start h-full"
+          >
+            <Fa icon={faCog} class="my-auto mr-2" />
+            <div>Settings</div>
+          </div>
+        </a>
       {/if}
       <a href="/logout" class="cursor-pointer">
         <div
@@ -73,7 +73,7 @@
   }
 
   .wallet-nav a:hover {
-    color: #3ba5ac;
+    color: #52b9ff;
   }
 
   @media (max-width: 1023px) {

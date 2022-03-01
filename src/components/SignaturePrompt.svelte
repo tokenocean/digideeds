@@ -71,14 +71,16 @@
       bind:checked={remove_prompt_sign}
       class="my-auto mr-2"
     />
-    <label for="remove_prompt_sign" class="my-auto mr-1">&nbsp;Don't ask me again</label>
+    <label for="remove_prompt_sign" class="my-auto mr-1"
+      >&nbsp;Don't ask me again</label
+    >
   </div>
 </div>
 
 <style>
   input[type="checkbox"] {
     appearance: none;
-    border: 3px solid #6ed8e0;
+    border: 3px solid #2596be;
     background-color: #fff;
     padding: 0;
     margin-right: 3px;
@@ -89,7 +91,7 @@
 
   input[type="checkbox"]:checked {
     border: none;
-    background-color: #6ed8e0;
+    background-color: #2596be;
   }
   label {
     line-height: 22px;

@@ -102,7 +102,7 @@
 <Snack />
 
 <Sidebar bind:open />
-<div class={y > 50 ? "sticky" : "bg-[#EAE2B7]"}>
+<div class={y > 50 ? "sticky" : ""}>
   <Navbar bind:sidebar={open} />
 </div>
 <Dialog />

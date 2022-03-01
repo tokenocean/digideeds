@@ -1,9 +1,10 @@
 <script context="module">
   export async function load({ session }) {
-    if (!(session && session.user)) return {
-      status: 302,
-      redirect: '/login'
-    } 
+    if (!(session && session.user))
+      return {
+        status: 302,
+        redirect: "/login",
+      };
 
     return {};
   }
@@ -61,47 +62,11 @@
   let pollBalances = async () => {
     await getBalances();
     poll = setTimeout(pollBalances, 5000);
-  } 
+  };
 
   onMount(pollBalances);
   onDestroy(() => clearTimeout(poll));
-
 </script>
-
-<style>
-  .dark-red {
-    background: #2b0208;
-  }
-  .dark-green {
-    background: #082527;
-  }
-  .dark-gray {
-    background: #31373e;
-  }
-  .border-blue {
-    border-color: #6ed8e0;
-  }
-
-  .bg-btc {
-    background: rgba(52, 190, 171, 0.25);
-  }
-  .border-btc {
-    border-color: #30bfad;
-  }
-
-  .light-color {
-    color: #f4f4f4;
-  }
-
-  .active {
-    @apply border-t-2 border-b-2 border-r-2 text-white;
-  }
-
-  button:disabled {
-    @apply text-gray-400 border-gray-400;
-  }
-
-</style>
 
 {#if $balances && $pending}
   <div class="w-full">
@@ -123,7 +88,10 @@
 
     <div class="dark-bg mb-2 pt-1 sm:rounded-lg">
       <div
-        class={`border-l-8 text-center p-3 text-white text-xl w-1/2 rounded-r-full mt-5 font-bold ${border($asset)} ${bg($asset)}`}>
+        class={`border-l-8 text-center p-3 text-white text-xl w-1/2 rounded-r-full mt-5 font-bold ${border(
+          $asset
+        )} ${bg($asset)}`}
+      >
         {name($asset)}
       </div>
 
@@ -138,20 +106,22 @@
         <div class="m-6">
           <div class="text-sm light-color">Pending</div>
           <div class="flex mt-3">
-            <span
-              class="light-color mr-3">{$pending && val($asset, $pending[$asset] || 0)}</span>
+            <span class="light-color mr-3"
+              >{$pending && val($asset, $pending[$asset] || 0)}</span
+            >
             <span class="text-gray-400">{assetLabel($asset)}</span>
           </div>
         </div>
       {/if}
       <div class="flex justify-between p-6 pt-2">
-        <button
-          on:click={toggleFunding}
-          class="button-trans-gray w-full mr-2">Fund</button>
+        <button on:click={toggleFunding} class="button-trans-gray w-full mr-2"
+          >Fund</button
+        >
         <button
           on:click={toggleWithdrawing}
           class="button-trans-gray w-full ml-2"
-          disabled={!balance}>Withdraw</button>
+          disabled={!balance}>Withdraw</button
+        >
       </div>
     </div>
     <div>
@@ -161,3 +131,37 @@
     </div>
   </div>
 {/if}
+
+<style>
+  .dark-red {
+    background: #2b0208;
+  }
+  .dark-green {
+    background: #082527;
+  }
+  .dark-gray {
+    background: #31373e;
+  }
+  .border-blue {
+    border-color: #2596be;
+  }
+
+  .bg-btc {
+    background: rgba(52, 190, 171, 0.25);
+  }
+  .border-btc {
+    border-color: #30bfad;
+  }
+
+  .light-color {
+    color: #f4f4f4;
+  }
+
+  .active {
+    @apply border-t-2 border-b-2 border-r-2 text-white;
+  }
+
+  button:disabled {
+    @apply text-gray-400 border-gray-400;
+  }
+</style>

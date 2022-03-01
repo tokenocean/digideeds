@@ -12,13 +12,13 @@
 </script>
 
 <div class="bg-black">
-  <div class="h-24 bg-[#EAE2B7] w-full" />
+  <div class="h-24 bg-white w-full" />
   <div class="container footer mx-auto flex flex-wrap text-white pt-12">
     <div
       class="flex flex-col text-sm w-full lg:w-2/4 mb-10 order-last lg:order-first"
     >
       <a href="/" class="w-48 text-3xl font-bold">
-        <img src="/logo.png" alt="logo" class="w-36 lg:w-48" />
+        <img src="/logo-white-font.png" alt="logo" class="w-36 lg:w-48" />
         <!-- {branding.projectName} -->
       </a>
 

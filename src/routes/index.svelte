@@ -39,11 +39,11 @@
 </script>
 
 <div
-  class="bg-[#003049] pb-20 md:pb-[128px] flex header-container mx-auto justify-center"
+  class="bg-[#2596BE] pb-20 md:pb-[128px] flex header-container mx-auto justify-center"
 >
   <div class="header text-center">
-    <h1 class="text-center md:w-full text-[#EAE2B7]">
-      <span class=" text-[#F77F00]">{branding.projectName}</span>
+    <h1 class="text-center md:w-full text-[#52B9FF]">
+      <span class="text-white">{branding.projectName}</span>
       <br />real estate
     </h1>
     <h5 class="md:max-w-lg mx-auto text-left md:text-center text-white">
@@ -76,7 +76,7 @@
           href="https://wikiless.org/wiki/Non-fungible_token"
           target="_blank"
           rel="noreferrer"
-          class="text-[#FCBF49] font-bold">NFT</a
+          class="text-[#52B9FF] font-bold">NFT</a
         >
         for a property. You can then list your property for sale on the
         {branding.projectName} marketplace and choose to sell it if you find a suitable
@@ -85,19 +85,19 @@
           href="https://bitcoin.org"
           target="_blank"
           rel="noreferrer"
-          class="text-[#FCBF49] font-bold">bitcoin</a
+          class="text-[#52B9FF] font-bold">bitcoin</a
         >
         and the
         <a
           href="https://blockstream.com/liquid/"
           target="_blank"
           rel="noreferrer"
-          class="text-[#FCBF49] font-bold">Liquid Network</a
+          class="text-[#52B9FF] font-bold">Liquid Network</a
         > to mint and facilitate sales of properties between buyers and sellers.
       </p>
       <a
         href="/market"
-        class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-black bg-[#FCBF49] rounded-lg hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300"
+        class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-black bg-[#52B9FF] rounded-lg hover:bg-blue-400 focus:ring-4 focus:ring-blue-300"
       >
         Explore properties
         <svg
@@ -139,7 +139,7 @@
         href="https://www.fidelitydigitalassets.com/bin-public/060_www_fidelity_com/documents/FDAS/bitcoin-first.pdf"
         target="_blank"
         rel="noreferrer"
-        class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-black bg-[#FCBF49] rounded-lg hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300"
+        class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-black bg-[#52B9FF] rounded-lg hover:bg-blue-400 focus:ring-4 focus:ring-blue-300"
       >
         Read more
         <svg
@@ -207,7 +207,7 @@
   </div>
 {/if}
 
-<div class="bg-[#003049] py-[128px]">
+<div class="bg-[#2596BE] py-[128px]">
   <div class="container mx-auto px-10">
     <h3 class="text-white">Latest Properties</h3>
   </div>
