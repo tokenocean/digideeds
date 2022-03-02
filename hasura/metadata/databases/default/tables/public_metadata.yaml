@@ -13,89 +13,93 @@ insert_permissions:
         artist_id:
           _eq: X-Hasura-User-Id
     columns:
-    - built_at
+    - amenities_nearby
+    - annual_taxes
+    - appliances_number
+    - appliences_included
+    - artwork_id
+    - bathroom_number
+    - bedroom_number
+    - building_type
+    - built_in
+    - created_at
+    - fire_protection
+    - floor_space
+    - id
     - maintenance_fee_monthly
     - property_address
-    - bedroom_number
-    - bathroom_number
     - property_title
-    - building_type
-    - annual_taxes
-    - appliences_included
-    - window_coverings
-    - floor_space
-    - fire_protection
-    - amenities_nearby
-    - created_at
     - updated_at
-    - artwork_id
-    - id
+    - window_coverings
   role: user
 select_permissions:
 - permission:
     columns:
-    - built_at
+    - amenities_nearby
+    - annual_taxes
+    - appliances_number
+    - appliences_included
+    - artwork_id
+    - bathroom_number
+    - bedroom_number
+    - building_type
+    - built_in
+    - created_at
+    - fire_protection
+    - floor_space
+    - id
     - maintenance_fee_monthly
     - property_address
-    - bedroom_number
-    - bathroom_number
     - property_title
-    - building_type
-    - annual_taxes
-    - appliences_included
-    - window_coverings
-    - floor_space
-    - fire_protection
-    - amenities_nearby
-    - created_at
     - updated_at
-    - artwork_id
-    - id
+    - window_coverings
     filter: {}
   role: anonymous
 - permission:
     allow_aggregations: true
     columns:
-    - id
+    - amenities_nearby
+    - annual_taxes
+    - appliances_number
+    - appliences_included
     - artwork_id
+    - bathroom_number
+    - bedroom_number
+    - building_type
+    - built_in
     - created_at
-    - updated_at
-    - built_at
+    - fire_protection
+    - floor_space
+    - id
     - maintenance_fee_monthly
     - property_address
-    - bedroom_number
-    - bathroom_number
     - property_title
-    - building_type
-    - annual_taxes
-    - appliences_included
+    - updated_at
     - window_coverings
-    - floor_space
-    - fire_protection
-    - amenities_nearby
     filter: {}
   role: user
 update_permissions:
 - permission:
     check: null
     columns:
-    - built_at
+    - amenities_nearby
+    - annual_taxes
+    - appliances_number
+    - appliences_included
+    - artwork_id
+    - bathroom_number
+    - bedroom_number
+    - building_type
+    - built_in
+    - created_at
+    - fire_protection
+    - floor_space
+    - id
     - maintenance_fee_monthly
     - property_address
-    - bedroom_number
-    - bathroom_number
     - property_title
-    - building_type
-    - annual_taxes
-    - appliences_included
-    - window_coverings
-    - floor_space
-    - fire_protection
-    - amenities_nearby
-    - created_at
     - updated_at
-    - artwork_id
-    - id
+    - window_coverings
     filter:
       artwork:
         owner_id:

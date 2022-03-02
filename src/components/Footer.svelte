@@ -9,6 +9,9 @@
     faTwitter,
   } from "@fortawesome/free-brands-svg-icons";
   import { faRss } from "@fortawesome/free-solid-svg-icons";
+
+  const date = new Date();
+  const year = date.getFullYear();
 </script>
 
 <div class="bg-black">
@@ -22,7 +25,7 @@
         <!-- {branding.projectName} -->
       </a>
 
-      <p class="mt-4">&copy;2021 {branding.projectName}</p>
+      <p class="mt-4">&copy;{year} {branding.projectName}</p>
       <div class="mt-12">
         <p class="pb-3">Powered by:</p>
         <img

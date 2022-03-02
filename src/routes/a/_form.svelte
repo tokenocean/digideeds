@@ -66,6 +66,7 @@
   <div class="flex flex-col mb-6">
     <label for="description">Description</label>
     <textarea
+      class="border-2 p-2"
       id="description"
       placeholder="How would you describe it?"
       bind:value={artwork.description}
@@ -74,6 +75,7 @@
   <div class="flex flex-col mb-6">
     <label for="property_address">Property Address</label>
     <input
+      class="border-2 p-2"
       id="property_address"
       placeholder="What is the property address?"
       bind:value={artwork.metadata.property_address}
@@ -82,18 +84,26 @@
   <div class="flex flex-col mb-6">
     <label for="bedroom_number">Number of Bedrooms</label>
     <input
+      class="border-2 p-2"
       id="bedroom_number"
       type="number"
       placeholder="How many bedrooms?"
+      min="0"
+      max="30"
+      step="1"
       bind:value={artwork.metadata.bedroom_number}
     />
   </div>
   <div class="flex flex-col mb-6">
     <label for="bathroom_number">Number of Bathrooms</label>
     <input
+      class="border-2 p-2"
       id="bathroom_number"
       type="number"
       placeholder="How many bathrooms?"
+      min="0"
+      max="30"
+      step="1"
       bind:value={artwork.metadata.bathroom_number}
     />
   </div>
@@ -113,6 +123,7 @@
   <div class="flex flex-col mb-6">
     <label for="building_type">Building Type</label>
     <input
+      class="border-2 p-2"
       id="building_type"
       placeholder="What is building type?"
       bind:value={artwork.metadata.building_type}
@@ -121,6 +132,7 @@
   <div class="flex flex-col mb-6">
     <label for="annual_taxes">Annual Property Taxes</label>
     <input
+      class="border-2 p-2"
       id="annual_taxes"
       type="number"
       placeholder="How much the property taxes are?"
@@ -130,31 +142,51 @@
   <div class="flex flex-col mb-6">
     <label for="maintenance_fee">Maintenance Fee</label>
     <input
+      class="border-2 p-2"
       type="number"
       placeholder="What's the monthly maintenance fee?"
       bind:value={artwork.metadata.maintenance_fee_monthly}
     />
   </div>
   <div class="flex flex-col mb-4 mr-6">
-    <label for="built_at">Built at</label>
+    <label for="built_in">Built in</label>
     <input
-      id="built_at"
-      type="date"
+      class="border-2 p-2"
+      id="built_in"
+      type="number"
+      min="1900"
+      max="2030"
+      step="1"
       name="date"
-      bind:value={artwork.metadata.built_at}
+      placeholder="Year of construction"
+      bind:value={artwork.metadata.built_in}
     />
   </div>
   <div class="flex flex-col mb-6">
     <h4>Interior Features</h4>
     <hr />
   </div>
-  <div class="flex flex-col mb-6">
+  <!-- <div class="flex flex-col mb-6">
     <ToggleSwitch
       id="appliences_included"
-      label="Appliences Included"
+      label="Appliances Included"
       checked={artwork.metadata.appliences_included}
       on:change={(e) =>
         (artwork.metadata.appliences_included = e.target.checked)}
+    />
+  </div> -->
+  <div class="flex flex-col mb-4 mr-6">
+    <label for="appliances_number">Appliances</label>
+    <input
+      class="border-2 p-2"
+      id="appliances_number"
+      type="number"
+      min="0"
+      max="10"
+      step="1"
+      name="date"
+      placeholder="Number of appliances"
+      bind:value={artwork.metadata.appliances_number}
     />
   </div>
   <div class="flex flex-col mb-6">
@@ -172,6 +204,7 @@
   <div class="flex flex-col mb-6">
     <label for="floor_space">Floor Space</label>
     <input
+      class="border-2 p-2"
       id="floor_space"
       type="number"
       placeholder="Floor space"
@@ -181,6 +214,7 @@
   <div class="flex flex-col mb-6">
     <label for="fire_protection">Fire Protection</label>
     <input
+      class="border-2 p-2"
       id="fire_protection"
       placeholder="Fire protection"
       bind:value={artwork.metadata.fire_protection}
@@ -189,6 +223,7 @@
   <div class="flex flex-col mb-6">
     <label for="amenities_nearby">Amenities Nearby</label>
     <input
+      class="border-2 p-2"
       id="amenities_nearby"
       placeholder="What are the amenities nearby?"
       bind:value={artwork.metadata.amenities_nearby}
@@ -214,7 +249,7 @@
       </div>
       <input
         id="ticker"
-        class="w-1/2"
+        class="w-1/2 border-2 p-2"
         bind:value={artwork.ticker}
         maxlength="5"
       />
@@ -223,7 +258,7 @@
   <div class="flex flex-col mb-6">
     <label for="tags"
       >Tags
-      <span class="text-gray-400">(e.g. Abstract, monochromatic, etc)</span
+      <span class="text-gray-400">(e.g. fireplace, waterfront, etc)</span
       ></label
     >
     <Select

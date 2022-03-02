@@ -263,9 +263,13 @@
         value: `$${artwork.metadata.maintenance_fee_monthly}`,
       },
       {
-        label: "Appliences included",
-        value: artwork.metadata.appliences_included ? "Yes" : "No",
+        label: "Appliances ",
+        value: artwork.metadata.appliances_number,
       },
+      // {
+      //   label: "Appliances included",
+      //   value: artwork.metadata.appliences_included ? "Yes" : "No",
+      // },
       {
         label: "Window coverings",
         value: artwork.metadata.window_coverings ? "Yes" : "No",
@@ -514,7 +518,7 @@
       </div>
 
       {#each artworkDetails as detail}
-        {#if detail.value}
+        {#if detail.value !== null}
           <div class="desk-desc description text-gray-600 break-words">
             <h4 class="mt-10 mb-5 font-bold">{detail.label}</h4>
             <div class="whitespace-pre-wrap">

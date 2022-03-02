@@ -192,7 +192,7 @@ export const getArtworkBySlug = `query($slug: String!) {
     num_favorites,
     metadata {
       maintenance_fee_monthly
-      built_at
+      built_in
       property_address
       bedroom_number
       bathroom_number
@@ -290,7 +290,7 @@ export const getArtwork = `query($id: uuid!) {
     }
     metadata {
       maintenance_fee_monthly
-      built_at
+      built_in
       property_address
       bedroom_number
       bathroom_number
@@ -298,6 +298,7 @@ export const getArtwork = `query($id: uuid!) {
       building_type
       annual_taxes
       appliences_included
+      appliances_number
       window_coverings
       floor_space
       fire_protection
