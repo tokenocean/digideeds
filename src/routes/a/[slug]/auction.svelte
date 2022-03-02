@@ -406,7 +406,7 @@
       </div>
     </a>
 
-    <h2>List artwork</h2>
+    <h2>List property</h2>
 
     {#if loading}
       <ProgressLinear />
@@ -455,7 +455,7 @@
                     will generate a partially signed atomic swap transaction. If
                     you run an auction, this price will be the "buy it now" or
                     buyout price that lets people skip the bidding process and
-                    immediately purchase the artwork.
+                    immediately purchase the property.
                     <br /><br />
                     Changing the price involves sending an on-chain cancellation
                     transaction to invalidate your half of the atomic swap transaction
@@ -498,7 +498,7 @@
                         class="tooltip-text bg-gray-100 shadow ml-4 rounded"
                       >
                         Setting royalty recipients involves transferring the
-                        artwork to a 2-of-2 multisig address with us. Our server
+                        property to a 2-of-2 multisig address with us. Our server
                         will co-sign on transfers if the buyer pays the
                         specified royalty to each recipient.
                       </span>
@@ -602,7 +602,7 @@
                           class="tooltip-text bg-gray-100 shadow ml-4 rounded"
                         >
                           Reserve price is the minimum price that you'll accept
-                          for the artwork. Setting one is optional.
+                          for the property. Setting one is optional.
                         </span>
                       </span>
                       <input

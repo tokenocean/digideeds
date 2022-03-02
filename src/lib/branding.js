@@ -21,7 +21,6 @@ const defaultBranding = {
     description: "Digital assets on the bitcoin liquid network.",
     image: "https://default.io/splash.png",
     url: "https://default.io/",
-
     twitter: {
       card: "summary_large_image",
       creator: "@default",
@@ -33,8 +32,11 @@ const defaultBranding = {
     support: "support@default.com",
   },
 };
+// TODO: Will get nftItemName and nftItemNamePlural from config after dev in admin function
 const brandingByConfig = {
-  ...defaultBranding, ...config,
+  ...defaultBranding,
+  ...config,
+  ...{ nftItemName: "property", nftItemNamePlural: "properties" },
 };
 
 export default brandingByConfig;
