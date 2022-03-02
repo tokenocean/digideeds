@@ -202,6 +202,7 @@ export const getArtworkBySlug = `query($slug: String!) {
       appliences_included
       window_coverings
       floor_space
+      ft_space_size_unit
       fire_protection
       amenities_nearby
     }
@@ -301,6 +302,7 @@ export const getArtwork = `query($id: uuid!) {
       appliances_number
       window_coverings
       floor_space
+      ft_space_size_unit
       fire_protection
       amenities_nearby
     }

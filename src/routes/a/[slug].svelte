@@ -248,10 +248,12 @@
   };
 
   let setArtworkDetails = (artwork) => {
+    const sizeUnit = artwork.metadata.ft_space_size_unit ? "ft²" : "m²";
+
     artworkDetails = [
       { label: "About this property", value: artwork.description },
       { label: "Property address", value: artwork.metadata.property_address },
-      { label: "Floor space", value: `${artwork.metadata.floor_space} sqft` },
+      { label: "Floor space", value: `${artwork.metadata.floor_space} ${sizeUnit}` },
       { label: "Bedroom number", value: artwork.metadata.bedroom_number },
       { label: "Bathroom number", value: artwork.metadata.bathroom_number },
       { label: "Building type", value: artwork.metadata.building_type },

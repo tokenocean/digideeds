@@ -25,6 +25,7 @@ insert_permissions:
     - created_at
     - fire_protection
     - floor_space
+    - ft_space_size_unit
     - id
     - maintenance_fee_monthly
     - property_address
@@ -47,6 +48,7 @@ select_permissions:
     - created_at
     - fire_protection
     - floor_space
+    - ft_space_size_unit
     - id
     - maintenance_fee_monthly
     - property_address
@@ -70,6 +72,7 @@ select_permissions:
     - created_at
     - fire_protection
     - floor_space
+    - ft_space_size_unit
     - id
     - maintenance_fee_monthly
     - property_address
@@ -94,6 +97,7 @@ update_permissions:
     - created_at
     - fire_protection
     - floor_space
+    - ft_space_size_unit
     - id
     - maintenance_fee_monthly
     - property_address

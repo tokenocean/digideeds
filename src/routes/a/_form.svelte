@@ -135,6 +135,9 @@
       class="border-2 p-2"
       id="annual_taxes"
       type="number"
+      min="0"
+      max="1000000"
+      step="10"
       placeholder="How much the property taxes are?"
       bind:value={artwork.metadata.annual_taxes}
     />
@@ -144,6 +147,9 @@
     <input
       class="border-2 p-2"
       type="number"
+      min="0"
+      max="100000"
+      step="1"
       placeholder="What's the monthly maintenance fee?"
       bind:value={artwork.metadata.maintenance_fee_monthly}
     />
@@ -207,8 +213,20 @@
       class="border-2 p-2"
       id="floor_space"
       type="number"
+      min="0"
+      max="5000"
+      step="1"
       placeholder="Floor space"
       bind:value={artwork.metadata.floor_space}
+    />
+  </div>
+  <div class="flex flex-col mb-6">
+    <ToggleSwitch
+      id="ft_space_size_unit"
+      dualColor={true}
+      label={artwork.metadata.ft_space_size_unit ? "ft²" : "m²"}
+      checked={artwork.metadata.ft_space_size_unit}
+      on:change={(e) => (artwork.metadata.ft_space_size_unit = e.target.checked)}
     />
   </div>
   <div class="flex flex-col mb-6">

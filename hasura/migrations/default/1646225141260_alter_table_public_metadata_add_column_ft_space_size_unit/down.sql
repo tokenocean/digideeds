@@ -1,0 +1,4 @@
+-- Could not auto-generate a down migration.
+-- Please write an appropriate down migration for the SQL below:
+-- alter table "public"."metadata" add column "ft_space_size_unit" boolean
+--  not null default 'false';
