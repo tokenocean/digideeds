@@ -294,12 +294,6 @@
         {artwork.title || "Untitled"}
       </h1>
       <div class="flex mt-4 mb-6">
-        <div class="my-auto">
-          Edition
-          {artwork.edition}
-          of
-          {artwork.editions}
-        </div>
         {#if artwork.is_physical}
           <div
             class="flex ml-auto py-1 px-4 bg-gray-100 rounded rounded-full my-auto"
