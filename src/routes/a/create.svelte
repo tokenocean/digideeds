@@ -225,8 +225,8 @@
       return err("File not uploaded or hasn't finished processing");
     if (!type) return err("Unrecognized file type");
 
-    if (!artwork.metadata.built_at)
-      return err("Please enter the built at date");
+    if (!artwork.metadata.built_in)
+      return err("Please enter the built in date");
 
     loading = true;
 

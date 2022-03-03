@@ -248,10 +248,13 @@
   };
 
   let setArtworkDetails = (artwork) => {
+    const sizeUnit = artwork.metadata.ft_space_size_unit ? "ft²" : "m²";
+
     artworkDetails = [
       { label: "About this property", value: artwork.description },
       { label: "Property address", value: artwork.metadata.property_address },
-      { label: "Floor space", value: `${artwork.metadata.floor_space} sqft` },
+      { label: "Floor space", value: `${artwork.metadata.floor_space} ${sizeUnit}` },
+      { label: "Built in", value: artwork.metadata.built_in },
       { label: "Bedroom number", value: artwork.metadata.bedroom_number },
       { label: "Bathroom number", value: artwork.metadata.bathroom_number },
       { label: "Building type", value: artwork.metadata.building_type },
@@ -263,9 +266,13 @@
         value: `$${artwork.metadata.maintenance_fee_monthly}`,
       },
       {
-        label: "Appliences included",
-        value: artwork.metadata.appliences_included ? "Yes" : "No",
+        label: "Appliances ",
+        value: artwork.metadata.appliances_number,
       },
+      // {
+      //   label: "Appliances included",
+      //   value: artwork.metadata.appliences_included ? "Yes" : "No",
+      // },
       {
         label: "Window coverings",
         value: artwork.metadata.window_coverings ? "Yes" : "No",
@@ -508,7 +515,7 @@
       </div>
 
       {#each artworkDetails as detail}
-        {#if detail.value}
+        {#if detail.value !== null}
           <div class="desk-desc description text-gray-600 break-words">
             <h4 class="mt-10 mb-5 font-bold">{detail.label}</h4>
             <div class="whitespace-pre-wrap">
