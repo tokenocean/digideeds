@@ -32,14 +32,14 @@ import {
   prompt,
 } from "$lib/store";
 import cryptojs from "crypto-js";
-import { btc, info } from "$lib/utils";
+import { btc, info, ticker as tickerFn, val } from "$lib/utils";
 import { requirePassword } from "$lib/auth";
 import { getActiveBids } from "$queries/transactions";
 import { compareAsc, parseISO } from "date-fns";
 import { SignaturePrompt } from "$comp";
 
-export const SIGN_CANCELLED = 'cancelled';
-export const SIGN_ACCEPTED = 'accepted';
+export const SIGN_CANCELLED = "cancelled";
+export const SIGN_ACCEPTED = "accepted";
 
 // const { retry } = middlewares.default || middlewares;
 
@@ -473,7 +473,11 @@ const fund = async (
       }
 
       if (total < amount) {
-        throw { message: "Insufficient funds", amount, asset, total };
+        throw new Error(
+          `Insufficient funds. Needed ${val(asset, amount)} ${tickerFn(
+            asset
+          )}. Total: ${val(asset, total)} ${tickerFn(asset)}.`
+        );
       }
     } else {
       total += utxos[i].value;
@@ -528,9 +532,7 @@ const addFee = (p) =>
 const bumpFee = (v) => fee.set(get(fee) + v);
 
 export const isMultisig = ({ auction_end }) => {
-  return !!(
-    (auction_end && compareAsc(parseISO(auction_end), new Date()) > 0)
-  );
+  return !!(auction_end && compareAsc(parseISO(auction_end), new Date()) > 0);
 };
 
 export const releaseToSelf = async (artwork) => {
@@ -653,11 +655,10 @@ export const cancelSwap = async (artwork) => {
 export const requireSign = async () => {
   signStatus.set(false);
 
-  return await new Promise(
-    (resolve) =>
-      (signStatus.subscribe((signedSub) => {
-        signedSub ? resolve(signedSub) : prompt.set(SignaturePrompt);
-      }))
+  return await new Promise((resolve) =>
+    signStatus.subscribe((signedSub) => {
+      signedSub ? resolve(signedSub) : prompt.set(SignaturePrompt);
+    })
   );
 };
 
@@ -667,14 +668,14 @@ export const sign = async (sighash) => {
 
   let { privkey } = keypair();
 
-  if(loggedUser.prompt_sign) {
+  if (loggedUser.prompt_sign) {
     const signResult = await requireSign();
 
-    if(signResult === SIGN_CANCELLED){
-      throw new Error('Signing cancelled');
+    if (signResult === SIGN_CANCELLED) {
+      throw new Error("Signing cancelled");
     }
 
-    info('Transaction signed!');
+    info("Transaction signed!");
   }
 
   p.data.inputs.map(({ sighashType }, i) => {

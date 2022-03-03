@@ -166,10 +166,10 @@
         class="flex justify-center text-center cursor-pointer tabs flex-wrap mb-2"
       >
         <div class:hover={tab === "liquid"} on:click={liquid}>Liquid</div>
-        <div class:hover={tab === "bitcoin"} on:click={bitcoin}>Bitcoin</div>
+        <!-- <div class:hover={tab === "bitcoin"} on:click={bitcoin}>Bitcoin</div>
         <div class:hover={tab === "lightning"} on:click={lightning}>
           Lightning
-        </div>
+        </div> -->
       </div>
     {/if}
     {#if loading}
