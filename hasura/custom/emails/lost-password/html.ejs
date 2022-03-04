@@ -88,7 +88,7 @@
   <body>
   <div class="container">
     <div class="logo">
-      <img src="<%= httpsUrl %>/logo.png" />
+      <img src="<%= url %>/logo.png" />
     </div>
       <p>Hello,</p>
       <p>Someone requested to reset the password for your account.</p>
@@ -100,20 +100,11 @@
         <a class="confirm" href="<%= url %>/reset-password/<%= ticket %>">Reset password</a>
       </div>
       <hr/>
-      <p>Best, <br /><%= projectName %> Team</p>
+      <p>Best, <br />The team</p>
       <hr />
       <div class="footer">
-        <p>Follow Us</p>
-        <div class="social">
-          <a href="<%= twitterUrl %>">
-            <img style="width: 20px" src="<%= httpsUrl %>/twitter.png" />
-          </a>
-          <a href="<%= telegramUrl %>">
-            <img style="width: 20px" src="<%= httpsUrl %>/telegram.png" />
-          </a>
-        </div>
-        <a class="visit" href="<%= httpsUrl %>">Visit website</a>
-        <p>© <%= projectName %> <%= new Date().getFullYear() %> </p>
+        <a class="visit" href="<%= url %>">Visit website</a>
+        <p>©<%= new Date().getFullYear() %> </p>
       </div>
     </div>
   </body>
