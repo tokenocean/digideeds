@@ -251,31 +251,74 @@
     const sizeUnit = artwork.metadata.ft_space_size_unit ? "ft²" : "m²";
 
     artworkDetails = [
-      { label: "About this property", value: artwork.description },
-      { label: "Property address", value: artwork.metadata.property_address },
-      { label: "Floor space", value: `${artwork.metadata.floor_space} ${sizeUnit}` },
-      { label: "Built in", value: artwork.metadata.built_in },
-      { label: "Bedroom number", value: artwork.metadata.bedroom_number },
-      { label: "Bathroom number", value: artwork.metadata.bathroom_number },
-      { label: "Building type", value: artwork.metadata.building_type },
-      { label: "Amenities nearby", value: artwork.metadata.amenities_nearby },
-      { label: "Fire protection", value: artwork.metadata.fire_protection },
-      { label: "Annual taxes", value: `$${artwork.metadata.annual_taxes}` },
+      {
+        label: "About this property",
+        value: artwork.description,
+        fullWidthDisplay: true,
+      },
+      {
+        label: "Property address",
+        value: artwork.metadata.property_address,
+        fullWidthDisplay: false,
+      },
+      {
+        label: "Floor space",
+        value: `${artwork.metadata.floor_space} ${sizeUnit}`,
+        fullWidthDisplay: false,
+      },
+      {
+        label: "Built in",
+        value: artwork.metadata.built_in,
+        fullWidthDisplay: false,
+      },
+      {
+        label: "Bedroom number",
+        value: artwork.metadata.bedroom_number,
+        fullWidthDisplay: false,
+      },
+      {
+        label: "Bathroom number",
+        value: artwork.metadata.bathroom_number,
+        fullWidthDisplay: false,
+      },
+      {
+        label: "Building type",
+        value: artwork.metadata.building_type,
+        fullWidthDisplay: false,
+      },
+      {
+        label: "Amenities nearby",
+        value: artwork.metadata.amenities_nearby,
+        fullWidthDisplay: false,
+      },
+      {
+        label: "Fire protection",
+        value: artwork.metadata.fire_protection,
+        fullWidthDisplay: false,
+      },
+      {
+        label: "Annual taxes",
+        value: `$${artwork.metadata.annual_taxes}`,
+        fullWidthDisplay: false,
+      },
       {
         label: "Monthly maintenance fee",
         value: `$${artwork.metadata.maintenance_fee_monthly}`,
+        fullWidthDisplay: false,
       },
       {
         label: "Appliances ",
         value: artwork.metadata.appliances_number,
+        fullWidthDisplay: false,
       },
       // {
       //   label: "Appliances included",
       //   value: artwork.metadata.appliences_included ? "Yes" : "No",
-      // },
+      //, fullWidthDisplay: false },
       {
         label: "Window coverings",
         value: artwork.metadata.window_coverings ? "Yes" : "No",
+        fullWidthDisplay: false,
       },
     ];
   };
@@ -516,7 +559,7 @@
 
       {#each artworkDetails as detail}
         {#if detail.value !== null}
-          <div class="desk-desc description text-gray-600 break-words">
+          <div class={`desk-desc description text-gray-600 break-words ${!detail.fullWidthDisplay ? 'oneLineDetail' : ''}`}>
             <h4 class="mt-10 mb-5 font-bold">{detail.label}</h4>
             <div class="whitespace-pre-wrap">
               {detail.value}
@@ -650,6 +693,19 @@
   .desktopImage :global(img),
   .desktopImage :global(video) {
     margin: 0 auto;
+  }
+
+  .oneLineDetail h4, .oneLineDetail > div {
+    display: inline-block;
+
+  }
+
+  .oneLineDetail h4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .oneLineDetail h4:after {
+    content: ":"
   }
 
   @keyframes zoom {
