@@ -12,7 +12,6 @@ app.register(require("fastify-static"), {
   prefix: "/public/", // optional: default '/'
 });
 
-
 require("./auth");
 require("./artworks");
 require("./auctions");
@@ -21,7 +20,7 @@ require("./proxy");
 require("./monitor");
 require("./signing");
 require("./upload");
-require("./mail");
+if (process.env.SMTP_HOST) require("./mail");
 
 app.listen(8091, "0.0.0.0", function (err, address) {
   if (err) {
