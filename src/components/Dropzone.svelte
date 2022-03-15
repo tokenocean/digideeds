@@ -7,6 +7,7 @@
 
   export let title = "Upload Your Property";
   export let style = "box";
+  export let handle = "default";
 
   let fileInput;
   let highlight;
@@ -31,6 +32,10 @@
   let open = (e) => {
     fileInput.click();
   };
+
+  let handleGallery = (e) => {
+    dispatch("file", { file: e.target.files[0] });
+  };
 </script>
 
 {#if style === "box"}
@@ -54,14 +59,25 @@
           <Fa icon={faCloudUploadAlt} />
         </span>
       </div>
-      <input
-        bind:this={fileInput}
-        type="file"
-        id="fileElem"
-        multiple
-        accept="image/*,video/*"
-        on:change={(e) => dispatch("file", e.target.files[0])}
-      />
+      {#if handle === "default"}
+        <input
+          bind:this={fileInput}
+          type="file"
+          id="fileElem"
+          multiple
+          accept="image/*,video/*"
+          on:change={(e) => dispatch("file", e.target.files[0])}
+        />
+      {:else}
+        <input
+          bind:this={fileInput}
+          type="file"
+          id="fileElem"
+          multiple
+          accept="image/*,video/*"
+          on:change={handleGallery}
+        />
+      {/if}
     </form>
   </div>
 {:else}
@@ -82,14 +98,25 @@
       <span class="uppercase">{title}</span>
       <Fa icon={faCloudUploadAlt} />
     </div>
-    <input
-      bind:this={fileInput}
-      type="file"
-      id="fileElem"
-      multiple
-      accept="image/*,video/*"
-      on:change={(e) => dispatch("file", e.target.files[0])}
-    />
+    {#if handle === "default"}
+      <input
+        bind:this={fileInput}
+        type="file"
+        id="fileElem"
+        multiple
+        accept="image/*,video/*"
+        on:change={(e) => dispatch("file", e.target.files[0])}
+      />
+    {:else}
+      <input
+        bind:this={fileInput}
+        type="file"
+        id="fileElem"
+        multiple
+        accept="image/*,video/*"
+        on:change={handleGallery}
+      />
+    {/if}
   </form>
 {/if}
 

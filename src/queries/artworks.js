@@ -1,3 +1,19 @@
+const fileFields = `
+  id
+  hash
+  type
+  filetype
+`;
+
+const artworkFiles = `
+  files {
+    ${fileFields}
+  }
+  gallery: files(where: { type: {_eq: "gallery"}}) {
+    ${fileFields}
+  }
+`;
+
 export const marketFields = `
   id
   edition
@@ -14,6 +30,7 @@ export const marketFields = `
   slug
   views
   created_at
+  ${artworkFiles}
   transferred_at
   owner {
     id
@@ -30,13 +47,14 @@ export const marketFields = `
     user {
       id
       username
-    } 
-    amount 
+    }
+    amount
   }
 `;
 
 export const fields = `
-  id,
+  id
+  ${artworkFiles}
   asset
   edition
   editions
@@ -95,15 +113,15 @@ export const fields = `
     user {
       id
       username
-    } 
-    amount 
+    }
+    amount
   }
 `;
 
 export const txFields = `
   id
   psbt
-  amount 
+  amount
   hash
   type
   created_at
@@ -112,21 +130,21 @@ export const txFields = `
   bid {
     id
     user {
-      id 
+      id
       username
-    } 
-  } 
+    }
+  }
   user {
     id
     username
     avatar_url
     full_name
     email
-  } 
+  }
   artwork_id
   artwork {
     ${fields}
-  } 
+  }
 `;
 
 export const getFeatured = `query {
@@ -134,10 +152,10 @@ export const getFeatured = `query {
     id
     start_date
     end_date
-    white 
+    white
     artwork {
       ${fields}
-    } 
+    }
   }
 }`;
 
@@ -152,7 +170,7 @@ export const getArtworks = `query($where: artworks_bool_exp!, $limit: Int, $offs
     ${fields}
     tags {
       tag
-    } 
+    }
   }
 }`;
 
@@ -161,7 +179,7 @@ export const getUserArtworks = `query($id: uuid!) {
     ${fields}
     tags {
       tag
-    } 
+    }
   }
 }`;
 
@@ -170,7 +188,7 @@ export const getArtworksByOwner = (id) => `query {
     ${fields}
     tags {
       tag
-    } 
+    }
   }
 }`;
 
@@ -185,7 +203,7 @@ export const getArtworkBySlug = `query($slug: String!) {
     ${fields}
     transactions(where: { type: { _neq: "royalty" }}, order_by: { created_at: desc }) {
       ${txFields}
-    } 
+    }
     tags {
       tag
     },
@@ -232,14 +250,14 @@ export const create = `mutation ($artwork: artworks_insert_input!, $tags: [tags_
     ${fields}
     tags {
       tag
-    } 
+    }
   }
   insert_tags(objects: $tags) {
     affected_rows
   }
   insert_transactions_one(object: $transaction) {
     ${txFields}
-  } 
+  }
 }`;
 
 export const updateArtwork = `mutation update_artwork($artwork: artworks_set_input!, $id: uuid!, $metadata: metadata_set_input = {}) {
@@ -268,7 +286,7 @@ export const updateArtworkWithRoyaltyRecipients = `mutation update_artwork_with_
 export const updateTags = `mutation insert_tags($tags: [tags_insert_input!]!, $artwork_id: uuid!) {
   delete_tags(where: {artwork_id: {_eq: $artwork_id}}) {
     affected_rows
-  } 
+  }
   insert_tags(objects: $tags) {
     affected_rows
   }
@@ -283,7 +301,7 @@ export const getArtwork = `query($id: uuid!) {
     num_favorites,
     transactions(where: { type: { _neq: "royalty" }}, order_by: { created_at: desc }) {
       ${txFields}
-    } 
+    }
     favorites_aggregate(where: {artwork_id: {_eq: $id}}) {
       aggregate {
         count
@@ -322,8 +340,8 @@ export const getTags = `query {
     tag
     artwork {
       ${fields}
-    } 
-  } 
+    }
+  }
 }`;
 
 export const getTitles = `query {

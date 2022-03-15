@@ -26,7 +26,13 @@
     user,
     token,
   } from "$lib/store";
-  import { Dropzone, ProgressLinear } from "$comp";
+  import {
+    Dropzone,
+    ProgressLinear,
+    FormItem,
+    FileUpload,
+    PhotoGallery,
+  } from "$comp";
   import { upload, supportedTypes } from "$lib/upload";
   import { create } from "$queries/artworks";
   import { btc, kebab, goto, err } from "$lib/utils";
@@ -45,6 +51,8 @@
   import Form from "./_form.svelte";
   import Issuing from "./_issuing.svelte";
 
+  export let files = [];
+
   let preview;
   let filename;
   let type;
@@ -53,6 +61,18 @@
   let loading;
   let focus;
   let title;
+  let gallery;
+
+  const addFile = async ({ detail: file }) => {
+    files = [
+      ...files.filter((f) => f.type === "gallery" || f.type !== file.type),
+      file,
+    ];
+
+    artwork[file.type] = [file];
+  };
+
+  $: images = files.filter((f) => f.type === "gallery");
 
   let previewFile = (file) => {
     var reader = new FileReader();
@@ -273,6 +293,7 @@
           ...{ metadata: { data: artwork.metadata } },
         };
         delete artworkSansTags.tags;
+        delete artworkSansTags.gallery;
 
         let variables = {
           artwork: artworkSansTags,
@@ -337,34 +358,58 @@
           <Form bind:artwork bind:focus on:submit={submit} bind:title />
         </div>
       </div>
-      {#if percent}
-        <div class="ml-2 flex-1 flex">
-          <div class="upload-button mx-auto">
-            <ArtworkMedia
-              {artwork}
-              {preview}
-              showDetails={false}
-              thumb={false}
-            />
-            <div class="w-full bg-grey-light p-8">
-              <div
-                class="font-light p-4 mx-auto max-w-xs text-center"
-                class:bg-primary={percent >= 100 && artwork.filename}
-                class:bg-yellow-200={percent < 100 || !artwork.filename}
-                style={width}
-              >
-                {#if percent < 100}
-                  {percent}%
-                {:else if artwork.filename}
-                  Upload complete!
-                {:else}Processing...{/if}
+      <div class="w-full lg:w-1/2">
+        {#if percent}
+          <div class="ml-2 flex-1 flex">
+            <div class="upload-button mx-auto">
+              <ArtworkMedia
+                {artwork}
+                {preview}
+                showDetails={false}
+                thumb={false}
+              />
+              <div class="w-full bg-grey-light p-8">
+                <div
+                  class="font-light p-4 mx-auto max-w-xs text-center"
+                  class:bg-primary={percent >= 100 && artwork.filename}
+                  class:bg-yellow-200={percent < 100 || !artwork.filename}
+                  style={width}
+                >
+                  {#if percent < 100}
+                    {percent}%
+                  {:else if artwork.filename}
+                    Upload complete!
+                  {:else}Processing...{/if}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      {:else}
-        <Dropzone on:file={uploadFile} style="box" />
-      {/if}
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+        {:else}
+          <Dropzone on:file={uploadFile} style="box" />
+        {/if}
+        <FormItem text="text-center">
+          {#if artwork.gallery && artwork.gallery.length}
+            <div class="mx-auto">
+              <PhotoGallery {images} bind:this={gallery} />
+            </div>
+          {/if}
+          <FileUpload
+            {artwork}
+            type="gallery"
+            limits="Upload gallery photos"
+            on:upload={addFile}
+            previewEnabled={false}
+          />
+        </FormItem>
+      </div>
     </div>
   </div>
 </div>

@@ -131,6 +131,7 @@
       src={preview || path ? path : "/liquid_logo.svg"}
       alt={artwork.title}
       bind:this={img}
+      class="object-cover"
     />
   </div>
 {/if}

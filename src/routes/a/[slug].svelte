@@ -63,6 +63,7 @@
     Card,
     Head,
     ProgressLinear,
+    PhotoGallery,
     RoyaltyInfo,
   } from "$comp";
   import Sidebar from "./_sidebar.svelte";
@@ -514,6 +515,16 @@
 
       <Sidebar bind:artwork />
 
+      <!-- Gallery photos -->
+      {#if artwork.gallery[0]}
+        <div class="mt-12">
+          <div class="text-2xl font-bold">Gallery</div>
+          <div class="mt-2">
+            <PhotoGallery images={artwork.gallery} />
+          </div>
+        </div>
+      {/if}
+
       {#if artwork.description}
         <div
           class="mob-desc description text-gray-600 whitespace-pre-wrap break-words"
@@ -559,7 +570,11 @@
 
       {#each artworkDetails as detail}
         {#if detail.value !== null}
-          <div class={`desk-desc description text-gray-600 break-words ${!detail.fullWidthDisplay ? 'oneLineDetail' : ''}`}>
+          <div
+            class={`desk-desc description text-gray-600 break-words ${
+              !detail.fullWidthDisplay ? "oneLineDetail" : ""
+            }`}
+          >
             <h4 class="mt-10 mb-5 font-bold">{detail.label}</h4>
             <div class="whitespace-pre-wrap">
               {detail.value}
@@ -695,9 +710,9 @@
     margin: 0 auto;
   }
 
-  .oneLineDetail h4, .oneLineDetail > div {
+  .oneLineDetail h4,
+  .oneLineDetail > div {
     display: inline-block;
-
   }
 
   .oneLineDetail h4 {
@@ -705,7 +720,7 @@
     margin-bottom: 1rem;
   }
   .oneLineDetail h4:after {
-    content: ":"
+    content: ":";
   }
 
   @keyframes zoom {
