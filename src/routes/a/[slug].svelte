@@ -253,7 +253,7 @@
 
     artworkDetails = [
       {
-        label: "About this property",
+        label: `About this ${branding.nftItemName}`,
         value: artwork.description,
         fullWidthDisplay: true,
       },
@@ -529,7 +529,7 @@
         <div
           class="mob-desc description text-gray-600 whitespace-pre-wrap break-words"
         >
-          <h4 class="mt-10 font-bold">About this property</h4>
+          <h4 class="mt-10 font-bold">About this {branding.nftItemName}</h4>
           <div class="desc-text {showMore ? 'openDesc' : ''}">
             {@html linkify(artwork.description)}
           </div>
