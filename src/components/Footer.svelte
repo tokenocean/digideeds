@@ -22,6 +22,7 @@
     >
       <a href="/" class="w-48 text-3xl font-bold">
         <img src="/logo-white-font.png" alt="logo" class="w-36 lg:w-48" />
+        <img src="/footer_logo.png" alt="logo" class="w-36 lg:w-48" />
         <!-- {branding.projectName} -->
       </a>
 
