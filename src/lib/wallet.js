@@ -476,7 +476,9 @@ const fund = async (
         throw new Error(
           `Insufficient funds. Needed ${val(asset, amount)} ${tickerFn(
             asset
-          )}. Total: ${val(asset, total)} ${tickerFn(asset)}.`
+          )}. Total: ${val(asset, total)} ${tickerFn(asset)}.
+Visit the FAQ to learn how to add funds to your wallet, min 1000 sats or 0.00001 L-BTC are required.
+`
         );
       }
     } else {
