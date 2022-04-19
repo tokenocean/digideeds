@@ -78,8 +78,8 @@ The plan is to separate out any DigiDeeds-specific features from the core platfo
      hasura metadata apply
      hasura seeds apply
      hasura metadata reload
-     sudo cp ../static/user.png storage
-     docker exec -it ipfs ipfs add /export/user.png
+     sudo cp ../static/user.png storage/QmcbyjMMT5fFtoiWRJiwV8xoiRWJpSRwC6qCFMqp7EXD4Z
+     docker exec -it ipfs ipfs add /export/QmcbyjMMT5fFtoiWRJiwV8xoiRWJpSRwC6qCFMqp7EXD4Z
      docker restart lapp
      cd ..
      pnpm dev   # site is available at http://localhost:3000/
