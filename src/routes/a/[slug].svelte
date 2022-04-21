@@ -293,11 +293,6 @@
         fullWidthDisplay: false,
       },
       {
-        label: "Fire protection",
-        value: artwork.metadata.fire_protection,
-        fullWidthDisplay: false,
-      },
-      {
         label: "Annual taxes",
         value: `$${artwork.metadata.annual_taxes}`,
         fullWidthDisplay: false,
@@ -319,6 +314,15 @@
       {
         label: "Window coverings",
         value: artwork.metadata.window_coverings ? "Yes" : "No",
+        fullWidthDisplay: false,
+      },
+      {
+        label: artwork.metadata.realtor_disclosure
+          ? "Realtor Disclosure"
+          : "Private Sale",
+        value: artwork.metadata.realtor_disclosure
+          ? artwork.metadata.realtor_disclosure
+          : "Yes",
         fullWidthDisplay: false,
       },
     ];

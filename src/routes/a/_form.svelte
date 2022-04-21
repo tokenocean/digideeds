@@ -51,6 +51,8 @@
   let handle = ({ detail }) => {
     artwork.tags = detail.map(({ value: tag }) => ({ tag }));
   };
+
+  let realtorCheck = true;
 </script>
 
 <form class="flex flex-col w-full mb-6 mt-20" on:submit autocomplete="off">
@@ -226,16 +228,8 @@
       dualColor={true}
       label={artwork.metadata.ft_space_size_unit ? "ft²" : "m²"}
       checked={artwork.metadata.ft_space_size_unit}
-      on:change={(e) => (artwork.metadata.ft_space_size_unit = e.target.checked)}
-    />
-  </div>
-  <div class="flex flex-col mb-6">
-    <label for="fire_protection">Fire Protection</label>
-    <input
-      class="border-2 p-2"
-      id="fire_protection"
-      placeholder="Fire protection"
-      bind:value={artwork.metadata.fire_protection}
+      on:change={(e) =>
+        (artwork.metadata.ft_space_size_unit = e.target.checked)}
     />
   </div>
   <div class="flex flex-col mb-6">
@@ -247,32 +241,6 @@
       bind:value={artwork.metadata.amenities_nearby}
     />
   </div>
-  {#if !artwork.id}
-    <div class="flex flex-col mb-6">
-      <div class="mb-0">
-        <label for="ticker" class="flex">
-          <div class="mr-2">Ticker</div>
-          <div class="mt-1 mb-0">
-            <span class="tooltip">
-              <i class="text-midblue text-xl">
-                <Fa icon={faQuestionCircle} />
-              </i>
-              <span class="tooltip-text bg-gray-100 shadow ml-4 rounded"
-                >The ticker is a short 3-5 character identifier for your asset
-                that you'll see in other wallets and explorers.</span
-              >
-            </span>
-          </div>
-        </label>
-      </div>
-      <input
-        id="ticker"
-        class="w-1/2 border-2 p-2"
-        bind:value={artwork.ticker}
-        maxlength="5"
-      />
-    </div>
-  {/if}
   <div class="flex flex-col mb-6">
     <label for="tags"
       >Tags
@@ -288,6 +256,29 @@
       {value}
       isCreatable={true}
     />
+  </div>
+  <div class="flex flex-col mb-6">
+    <label for="realtor">Are you a realtor?</label>
+    <input
+      id="realtor"
+      type="checkbox"
+      checked={realtorCheck}
+      class="w-5 h-5 mb-6"
+      on:change={() => (realtorCheck = !realtorCheck)}
+    />
+    {#if realtorCheck}
+      <label for="realtordisclosure">Realtor Disclosure</label>
+      <input
+        class="border-2 p-2"
+        id="realtordisclosure"
+        placeholder="Legal requirement for Realtors"
+        required
+        type="text"
+        bind:value={artwork.metadata.realtor_disclosure}
+      />
+    {:else}
+      <span>Private sale.</span>
+    {/if}
   </div>
   <div class="flex">
     <button type="submit" class="primary-btn">Submit</button>

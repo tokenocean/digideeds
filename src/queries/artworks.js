@@ -219,6 +219,7 @@ export const getArtworkBySlug = `query($slug: String!) {
       annual_taxes
       appliences_included
       window_coverings
+      realtor_disclosure
       floor_space
       ft_space_size_unit
       fire_protection
@@ -319,6 +320,7 @@ export const getArtwork = `query($id: uuid!) {
       appliences_included
       appliances_number
       window_coverings
+      realtor_disclosure
       floor_space
       ft_space_size_unit
       fire_protection
