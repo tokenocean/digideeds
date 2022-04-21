@@ -64,6 +64,7 @@
         <input
           id="email"
           name="email"
+          required
           placeholder="Email"
           bind:value={email}
           bind:this={ref}
@@ -76,6 +77,7 @@
         <input
           id="username"
           name="username"
+          required
           placeholder="Username"
           autocapitalize="off"
           bind:value={username}
@@ -91,6 +93,7 @@
               class="w-full"
               bind:value={password}
               autocapitalize="off"
+              required
               id="password"
               name="password"
               placeholder="At least 8 characters."
@@ -99,6 +102,7 @@
             <input
               class="w-full"
               type="password"
+              required
               bind:value={password}
               autocapitalize="off"
               id="password"
