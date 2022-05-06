@@ -147,7 +147,7 @@
   .contain video {
     height: 350px;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   img,
