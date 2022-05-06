@@ -17,9 +17,6 @@
   >
   <a href="/help"><button on:click={toggle}>Help</button></a>
   {#if $session?.user}
-    {#if $session.user.is_admin}
-      <a href="/admin"><button on:click={toggle}>Admin</button></a>
-    {/if}
     <a href={`/${$session.user.username}`}>
       <button on:click={toggle} class="flex">
         <Avatar user={$session.user} />
